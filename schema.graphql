@@ -1,0 +1,42 @@
+type AddAuthorization @entity(immutable: true) {
+  id: Bytes!
+  _account: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DeployCollateralAuctionHouse @entity(immutable: true) {
+  id: Bytes!
+  _cType: Bytes! # bytes32
+  _collateralAuctionHouse: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DisableContract @entity(immutable: true) {
+  id: Bytes!
+
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ModifyParameters @entity(immutable: true) {
+  id: Bytes!
+  _param: Bytes! # bytes32
+  _cType: Bytes! # bytes32
+  _data: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RemoveAuthorization @entity(immutable: true) {
+  id: Bytes!
+  _account: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

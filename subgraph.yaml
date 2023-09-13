@@ -1,0 +1,36 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: collateralAuctionHouseFactory
+    network: arbitrum-goerli
+    source:
+      address: "0x79399Df38Ca64F8B5dDC7B4BAF9322f843cd94AE"
+      abi: collateralAuctionHouseFactory
+      startBlock: 39926764
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AddAuthorization
+        - DeployCollateralAuctionHouse
+        - DisableContract
+        - ModifyParameters
+        - RemoveAuthorization
+      abis:
+        - name: collateralAuctionHouseFactory
+          file: ./abis/collateralAuctionHouseFactory.json
+      eventHandlers:
+        - event: AddAuthorization(address)
+          handler: handleAddAuthorization
+        - event: DeployCollateralAuctionHouse(indexed bytes32,indexed address)
+          handler: handleDeployCollateralAuctionHouse
+        - event: DisableContract()
+          handler: handleDisableContract
+        - event: ModifyParameters(indexed bytes32,indexed bytes32,bytes)
+          handler: handleModifyParameters
+        - event: RemoveAuthorization(address)
+          handler: handleRemoveAuthorization
+      file: ./src/collateral-auction-house-factory.ts

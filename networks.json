@@ -1,0 +1,8 @@
+{
+  "arbitrum-goerli": {
+    "collateralAuctionHouseFactory": {
+      "address": "0x79399Df38Ca64F8B5dDC7B4BAF9322f843cd94AE",
+      "startBlock": 39926764
+    }
+  }
+}

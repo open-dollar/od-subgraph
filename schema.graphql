@@ -40,6 +40,7 @@ type RemoveAuthorization @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+
 type SurplusAuctionHouseAddAuthorization @entity(immutable: true) {
   id: Bytes!
   _account: Bytes! # address
@@ -125,6 +126,7 @@ type SurplusAuctionHouseTerminateAuctionPrematurely @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+
 type DebtAuctionHouseAddAuthorization @entity(immutable: true) {
   id: Bytes!
   _account: Bytes! # address
@@ -219,17 +221,6 @@ type CollateralAuctionHouseAddAuthorization @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type CollateralAuctionHouseBuyCollateral @entity(immutable: true) {
-  id: Bytes!
-  _auctionId: BigInt! # uint256
-  _bidder: Bytes! # address
-  _raisedAmount: BigInt! # uint256
-  _soldAmount: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
 type collateralAuctionHouseModifyParameters @entity(immutable: true) {
   id: Bytes!
   _param: Bytes! # bytes32
@@ -248,11 +239,13 @@ type CollateralAuctionHouseRemoveAuthorization @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type CollateralAuctionHouseSettleAuction @entity(immutable: true) {
+type CollateralAuctionHouseBuyCollateral @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
-  _leftoverReceiver: Bytes! # address
-  _leftoverCollateral: BigInt! # uint256
+  _bidder: Bytes! # address
+  _raisedAmount: BigInt! # uint256
+  _soldAmount: BigInt! # uint256
+  address: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -266,6 +259,18 @@ type CollateralAuctionHouseStartAuction @entity(immutable: true) {
   _initialDiscount: BigInt! # uint256
   _maxDiscount: BigInt! # uint256
   _perSecondDiscountUpdateRate: BigInt! # uint256
+  address: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type CollateralAuctionHouseSettleAuction @entity(immutable: true) {
+  id: Bytes!
+  _auctionId: BigInt! # uint256
+  _leftoverReceiver: Bytes! # address
+  _leftoverCollateral: BigInt! # uint256
+  address: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -277,6 +282,7 @@ type CollateralAuctionHouseTerminateAuctionPrematurely
   _auctionId: BigInt! # uint256
   _leftoverReceiver: Bytes! # address
   _leftoverCollateral: BigInt! # uint256
+  address: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

@@ -34,3 +34,129 @@ dataSources:
         - event: RemoveAuthorization(address)
           handler: handleRemoveAuthorization
       file: ./src/collateral-auction-house-factory.ts
+  - kind: ethereum
+    name: surplusAuctionHouse
+    network: arbitrum-goerli
+    source:
+      address: "0x9C0a6A3241D66baa9B8A9696a9b43f7dA97E9FE4"
+      abi: surplusAuctionHouse
+      startBlock: 39926696
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - surplusAuctionHouseAddAuthorization
+        - surplusAuctionHouseDisableContract
+        - IncreaseBidSize
+        - surplusAuctionHouseModifyParameters
+        - surplusAuctionHouseRemoveAuthorization
+        - RestartAuction
+        - SettleAuction
+        - StartAuction
+        - TerminateAuctionPrematurely
+      abis:
+        - name: surplusAuctionHouse
+          file: ./abis/surplusAuctionHouse.json
+      eventHandlers:
+        - event: AddAuthorization(address)
+          handler: handleAddAuthorization
+        - event: DisableContract()
+          handler: handleDisableContract
+        - event: IncreaseBidSize(indexed uint256,address,uint256,uint256,uint256,uint256)
+          handler: handleIncreaseBidSize
+        - event: ModifyParameters(indexed bytes32,indexed bytes32,bytes)
+          handler: handleModifyParameters
+        - event: RemoveAuthorization(address)
+          handler: handleRemoveAuthorization
+        - event: RestartAuction(indexed uint256,uint256,uint256)
+          handler: handleRestartAuction
+        - event: SettleAuction(indexed uint256,uint256,address,uint256)
+          handler: handleSettleAuction
+        - event: StartAuction(indexed uint256,uint256,uint256,uint256,uint256)
+          handler: handleStartAuction
+        - event: TerminateAuctionPrematurely(indexed uint256,uint256,address,uint256)
+          handler: handleTerminateAuctionPrematurely
+      file: ./src/surplus-auction-house.ts
+  - kind: ethereum
+    name: debtAuctionHouse
+    network: arbitrum-goerli
+    source:
+      address: "0x10EbCf3989aE2fFf635d383685Cfbb4912908b81"
+      abi: debtAuctionHouse
+      startBlock: 39926715
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - debtAuctionHouseAddAuthorization
+        - DecreaseSoldAmount
+        - debtAuctionHouseDisableContract
+        - debtAuctionHouseModifyParameters
+        - debtAuctionHouseRemoveAuthorization
+        - debtAuctionHouseRestartAuction
+        - debtAuctionHouseSettleAuction
+        - debtAuctionHouseStartAuction
+        - debtAuctionHouseTerminateAuctionPrematurely
+      abis:
+        - name: debtAuctionHouse
+          file: ./abis/debtAuctionHouse.json
+      eventHandlers:
+        - event: AddAuthorization(address)
+          handler: handleAddAuthorization
+        - event: DecreaseSoldAmount(indexed uint256,address,uint256,uint256,uint256,uint256)
+          handler: handleDecreaseSoldAmount
+        - event: DisableContract()
+          handler: handleDisableContract
+        - event: ModifyParameters(indexed bytes32,indexed bytes32,bytes)
+          handler: handleModifyParameters
+        - event: RemoveAuthorization(address)
+          handler: handleRemoveAuthorization
+        - event: RestartAuction(indexed uint256,uint256,uint256)
+          handler: handleRestartAuction
+        - event: SettleAuction(indexed uint256,uint256,address,uint256)
+          handler: handleSettleAuction
+        - event: StartAuction(indexed uint256,uint256,uint256,uint256,uint256)
+          handler: handleStartAuction
+        - event: TerminateAuctionPrematurely(indexed uint256,uint256,address,uint256)
+          handler: handleTerminateAuctionPrematurely
+      file: ./src/debt-auction-house.ts
+  - kind: ethereum
+    name: collateralAuctionHouse
+    network: arbitrum-goerli
+    source:
+      address: "0xfabF242A981A3823033dC203F5a36D5acD500b80"
+      abi: collateralAuctionHouse
+      startBlock: 39927632
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - collateralAuctionHouseAddAuthorization
+        - BuyCollateral
+        - collateralAuctionHouseModifyParameters
+        - collateralAuctionHouseRemoveAuthorization
+        - collateralAuctionHouseSettleAuction
+        - collateralAuctionHouseStartAuction
+        - collateralAuctionHouseTerminateAuctionPrematurely
+      abis:
+        - name: collateralAuctionHouse
+          file: ./abis/collateralAuctionHouse.json
+      eventHandlers:
+        - event: AddAuthorization(address)
+          handler: handleAddAuthorization
+        - event: BuyCollateral(indexed uint256,address,uint256,uint256,uint256)
+          handler: handleBuyCollateral
+        - event: ModifyParameters(indexed bytes32,indexed bytes32,bytes)
+          handler: handleModifyParameters
+        - event: RemoveAuthorization(address)
+          handler: handleRemoveAuthorization
+        - event: SettleAuction(indexed uint256,uint256,address,uint256)
+          handler: handleSettleAuction
+        - event: StartAuction(indexed uint256,uint256,uint256,uint256,uint256,uint256,uint256)
+          handler: handleStartAuction
+        - event: TerminateAuctionPrematurely(indexed uint256,uint256,address,uint256)
+          handler: handleTerminateAuctionPrematurely
+      file: ./src/collateral-auction-house.ts

@@ -3,6 +3,15 @@
     "collateralAuctionHouseFactory": {
       "address": "0x79399Df38Ca64F8B5dDC7B4BAF9322f843cd94AE",
       "startBlock": 39926764
+    },
+    "surplusAuctionHouse": {
+      "address": "0x9C0a6A3241D66baa9B8A9696a9b43f7dA97E9FE4"
+    },
+    "debtAuctionHouse": {
+      "address": "0x10EbCf3989aE2fFf635d383685Cfbb4912908b81"
+    },
+    "collateralAuctionHouse": {
+      "address": "0xfabF242A981A3823033dC203F5a36D5acD500b80"
     }
   }
 }

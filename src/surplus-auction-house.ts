@@ -52,7 +52,7 @@ export function handleIncreaseBidSize(event: IncreaseBidSizeEvent): void {
   );
   entity._auctionId = event.params._id;
   entity._bidder = event.params._bidder;
-  entity._blockTimestamp = event.params._blockTimestamp;
+
   entity._raisedAmount = event.params._raisedAmount;
   entity._soldAmount = event.params._soldAmount;
   entity._bidExpiry = event.params._bidExpiry;
@@ -99,7 +99,7 @@ export function handleRestartAuction(event: RestartAuctionEvent): void {
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
-  entity._blockTimestamp = event.params._blockTimestamp;
+
   entity._auctionDeadline = event.params._auctionDeadline;
 
   entity.blockNumber = event.block.number;
@@ -114,7 +114,7 @@ export function handleSettleAuction(event: SettleAuctionEvent): void {
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
-  entity._blockTimestamp = event.params._blockTimestamp;
+
   entity._highBidder = event.params._highBidder;
   entity._raisedAmount = event.params._raisedAmount;
 
@@ -130,7 +130,7 @@ export function handleStartAuction(event: StartAuctionEvent): void {
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
-  entity._blockTimestamp = event.params._blockTimestamp;
+  // entity._blockTimestamp = event.params._blockTimestamp;
   entity._amountToSell = event.params._amountToSell;
   entity._amountToRaise = event.params._amountToRaise;
   entity._auctionDeadline = event.params._auctionDeadline;
@@ -149,7 +149,7 @@ export function handleTerminateAuctionPrematurely(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
-  entity._blockTimestamp = event.params._blockTimestamp;
+
   entity._highBidder = event.params._highBidder;
   entity._raisedAmount = event.params._raisedAmount;
 

@@ -6,7 +6,7 @@ import {
   SettleAuction as SettleAuctionEvent,
   StartAuction as StartAuctionEvent,
   TerminateAuctionPrematurely as TerminateAuctionPrematurelyEvent,
-} from "../generated/collateralAuctionHouse/collateralAuctionHouse";
+} from "../generated/templates/collateralAuctionHouse/collateralAuctionHouse";
 import {
   AddAuthorization,
   BuyCollateral,
@@ -36,7 +36,7 @@ export function handleBuyCollateral(event: BuyCollateralEvent): void {
   );
   entity._auctionId = event.params._id;
   entity._bidder = event.params._bidder;
-  entity._blockTimestamp = event.params._blockTimestamp;
+
   entity._raisedAmount = event.params._raisedAmount;
   entity._soldAmount = event.params._soldAmount;
 
@@ -82,7 +82,7 @@ export function handleSettleAuction(event: SettleAuctionEvent): void {
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
-  entity._blockTimestamp = event.params._blockTimestamp;
+
   // entity._leftoverReceiver = event.params._leftoverReceiver
   // entity._leftoverCollateral = event.params._leftoverCollateral
 
@@ -98,7 +98,7 @@ export function handleStartAuction(event: StartAuctionEvent): void {
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
-  entity._blockTimestamp = event.params._blockTimestamp;
+
   entity._amountToSell = event.params._amountToSell;
   entity._amountToRaise = event.params._amountToRaise;
   // entity._initialDiscount = event.params._initialDiscount
@@ -120,7 +120,7 @@ export function handleTerminateAuctionPrematurely(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
-  entity._blockTimestamp = event.params._blockTimestamp;
+
   // entity._leftoverReceiver = event.params._leftoverReceiver
   // entity._leftoverCollateral = event.params._leftoverCollateral
 

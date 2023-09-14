@@ -9,12 +9,12 @@ import {
 } from "../generated/templates/collateralAuctionHouse/collateralAuctionHouse";
 import {
   AddAuthorization,
-  BuyCollateral,
   ModifyParameters,
   RemoveAuthorization,
-  collateralAuctionHouseSettleAuction,
-  collateralAuctionHouseStartAuction,
-  collateralAuctionHouseTerminateAuctionPrematurely,
+  CollateralAuctionHouseBuyCollateral,
+  CollateralAuctionHouseSettleAuction,
+  CollateralAuctionHouseStartAuction,
+  CollateralAuctionHouseTerminateAuctionPrematurely,
 } from "../generated/schema";
 
 export function handleAddAuthorization(event: AddAuthorizationEvent): void {
@@ -31,7 +31,7 @@ export function handleAddAuthorization(event: AddAuthorizationEvent): void {
 }
 
 export function handleBuyCollateral(event: BuyCollateralEvent): void {
-  let entity = new BuyCollateral(
+  let entity = new CollateralAuctionHouseBuyCollateral(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
@@ -78,7 +78,7 @@ export function handleRemoveAuthorization(
 }
 
 export function handleSettleAuction(event: SettleAuctionEvent): void {
-  let entity = new collateralAuctionHouseSettleAuction(
+  let entity = new CollateralAuctionHouseSettleAuction(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
@@ -93,7 +93,7 @@ export function handleSettleAuction(event: SettleAuctionEvent): void {
 }
 
 export function handleStartAuction(event: StartAuctionEvent): void {
-  let entity = new collateralAuctionHouseStartAuction(
+  let entity = new CollateralAuctionHouseStartAuction(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
@@ -115,7 +115,7 @@ export function handleStartAuction(event: StartAuctionEvent): void {
 export function handleTerminateAuctionPrematurely(
   event: TerminateAuctionPrematurelyEvent
 ): void {
-  let entity = new collateralAuctionHouseTerminateAuctionPrematurely(
+  let entity = new CollateralAuctionHouseTerminateAuctionPrematurely(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;

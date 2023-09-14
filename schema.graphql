@@ -40,7 +40,7 @@ type RemoveAuthorization @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
-type surplusAuctionHouseAddAuthorization @entity(immutable: true) {
+type SurplusAuctionHouseAddAuthorization @entity(immutable: true) {
   id: Bytes!
   _account: Bytes! # address
   blockNumber: BigInt!
@@ -48,7 +48,7 @@ type surplusAuctionHouseAddAuthorization @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type surplusAuctionHouseDisableContract @entity(immutable: true) {
+type SurplusAuctionHouseDisableContract @entity(immutable: true) {
   id: Bytes!
 
   blockNumber: BigInt!
@@ -56,7 +56,7 @@ type surplusAuctionHouseDisableContract @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type IncreaseBidSize @entity(immutable: true) {
+type SurplusAuctionHouseIncreaseBidSize @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _bidder: Bytes! # address
@@ -68,7 +68,7 @@ type IncreaseBidSize @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type surplusAuctionHouseModifyParameters @entity(immutable: true) {
+type SurplusAuctionHouseModifyParameters @entity(immutable: true) {
   id: Bytes!
   _param: Bytes! # bytes32
   _cType: Bytes! # bytes32
@@ -78,7 +78,7 @@ type surplusAuctionHouseModifyParameters @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type surplusAuctionHouseRemoveAuthorization @entity(immutable: true) {
+type SurplusAuctionHouseRemoveAuthorization @entity(immutable: true) {
   id: Bytes!
   _account: Bytes! # address
   blockNumber: BigInt!
@@ -86,7 +86,7 @@ type surplusAuctionHouseRemoveAuthorization @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type RestartAuction @entity(immutable: true) {
+type SurplusAuctionHouseRestartAuction @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _auctionDeadline: BigInt! # uint256
@@ -95,7 +95,7 @@ type RestartAuction @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type SettleAuction @entity(immutable: true) {
+type SurplusAuctionHouseSettleAuction @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _highBidder: Bytes! # address
@@ -105,7 +105,7 @@ type SettleAuction @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type StartAuction @entity(immutable: true) {
+type SurplusAuctionHouseStartAuction @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _amountToSell: BigInt! # uint256
@@ -116,7 +116,7 @@ type StartAuction @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type TerminateAuctionPrematurely @entity(immutable: true) {
+type SurplusAuctionHouseTerminateAuctionPrematurely @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _highBidder: Bytes! # address
@@ -125,7 +125,7 @@ type TerminateAuctionPrematurely @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
-type debtAuctionHouseAddAuthorization @entity(immutable: true) {
+type DebtAuctionHouseAddAuthorization @entity(immutable: true) {
   id: Bytes!
   _account: Bytes! # address
   blockNumber: BigInt!
@@ -133,7 +133,7 @@ type debtAuctionHouseAddAuthorization @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type DecreaseSoldAmount @entity(immutable: true) {
+type DebtAuctionHouseDecreaseSoldAmount @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _bidder: Bytes! # address
@@ -145,7 +145,7 @@ type DecreaseSoldAmount @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type debtAuctionHouseDisableContract @entity(immutable: true) {
+type DebtAuctionHouseDisableContract @entity(immutable: true) {
   id: Bytes!
 
   blockNumber: BigInt!
@@ -153,7 +153,7 @@ type debtAuctionHouseDisableContract @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type debtAuctionHouseModifyParameters @entity(immutable: true) {
+type DebtAuctionHouseModifyParameters @entity(immutable: true) {
   id: Bytes!
   _param: Bytes! # bytes32
   _cType: Bytes! # bytes32
@@ -163,7 +163,7 @@ type debtAuctionHouseModifyParameters @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type debtAuctionHouseRemoveAuthorization @entity(immutable: true) {
+type DebtAuctionHouseRemoveAuthorization @entity(immutable: true) {
   id: Bytes!
   _account: Bytes! # address
   blockNumber: BigInt!
@@ -171,7 +171,7 @@ type debtAuctionHouseRemoveAuthorization @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type debtAuctionHouseRestartAuction @entity(immutable: true) {
+type DebtAuctionHouseRestartAuction @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _auctionDeadline: BigInt! # uint256
@@ -180,7 +180,7 @@ type debtAuctionHouseRestartAuction @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type debtAuctionHouseSettleAuction @entity(immutable: true) {
+type DebtAuctionHouseSettleAuction @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _highBidder: Bytes! # address
@@ -190,7 +190,7 @@ type debtAuctionHouseSettleAuction @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type debtAuctionHouseStartAuction @entity(immutable: true) {
+type DebtAuctionHouseStartAuction @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _amountToSell: BigInt! # uint256
@@ -201,7 +201,7 @@ type debtAuctionHouseStartAuction @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type debtAuctionHouseTerminateAuctionPrematurely @entity(immutable: true) {
+type DebtAuctionHouseTerminateAuctionPrematurely @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _highBidder: Bytes! # address
@@ -210,7 +210,8 @@ type debtAuctionHouseTerminateAuctionPrematurely @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
-type collateralAuctionHouseAddAuthorization @entity(immutable: true) {
+
+type CollateralAuctionHouseAddAuthorization @entity(immutable: true) {
   id: Bytes!
   _account: Bytes! # address
   blockNumber: BigInt!
@@ -218,7 +219,7 @@ type collateralAuctionHouseAddAuthorization @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type BuyCollateral @entity(immutable: true) {
+type CollateralAuctionHouseBuyCollateral @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _bidder: Bytes! # address
@@ -239,7 +240,7 @@ type collateralAuctionHouseModifyParameters @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type collateralAuctionHouseRemoveAuthorization @entity(immutable: true) {
+type CollateralAuctionHouseRemoveAuthorization @entity(immutable: true) {
   id: Bytes!
   _account: Bytes! # address
   blockNumber: BigInt!
@@ -247,7 +248,7 @@ type collateralAuctionHouseRemoveAuthorization @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type collateralAuctionHouseSettleAuction @entity(immutable: true) {
+type CollateralAuctionHouseSettleAuction @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _leftoverReceiver: Bytes! # address
@@ -257,7 +258,7 @@ type collateralAuctionHouseSettleAuction @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type collateralAuctionHouseStartAuction @entity(immutable: true) {
+type CollateralAuctionHouseStartAuction @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
   _amountToSell: BigInt! # uint256
@@ -270,11 +271,10 @@ type collateralAuctionHouseStartAuction @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type collateralAuctionHouseTerminateAuctionPrematurely
+type CollateralAuctionHouseTerminateAuctionPrematurely
   @entity(immutable: true) {
   id: Bytes!
   _auctionId: BigInt! # uint256
-  # #   _blockTimestamp: BigInt! # uint256
   _leftoverReceiver: Bytes! # address
   _leftoverCollateral: BigInt! # uint256
   blockNumber: BigInt!

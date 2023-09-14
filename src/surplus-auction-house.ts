@@ -12,13 +12,13 @@ import {
 import {
   AddAuthorization,
   DisableContract,
-  IncreaseBidSize,
   ModifyParameters,
   RemoveAuthorization,
-  RestartAuction,
-  SettleAuction,
-  StartAuction,
-  TerminateAuctionPrematurely,
+  SurplusAuctionHouseIncreaseBidSize,
+  SurplusAuctionHouseRestartAuction,
+  SurplusAuctionHouseSettleAuction,
+  SurplusAuctionHouseStartAuction,
+  SurplusAuctionHouseTerminateAuctionPrematurely,
 } from "../generated/schema";
 
 export function handleAddAuthorization(event: AddAuthorizationEvent): void {
@@ -47,7 +47,7 @@ export function handleDisableContract(event: DisableContractEvent): void {
 }
 
 export function handleIncreaseBidSize(event: IncreaseBidSizeEvent): void {
-  let entity = new IncreaseBidSize(
+  let entity = new SurplusAuctionHouseIncreaseBidSize(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
@@ -95,7 +95,7 @@ export function handleRemoveAuthorization(
 }
 
 export function handleRestartAuction(event: RestartAuctionEvent): void {
-  let entity = new RestartAuction(
+  let entity = new SurplusAuctionHouseRestartAuction(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
@@ -110,7 +110,7 @@ export function handleRestartAuction(event: RestartAuctionEvent): void {
 }
 
 export function handleSettleAuction(event: SettleAuctionEvent): void {
-  let entity = new SettleAuction(
+  let entity = new SurplusAuctionHouseSettleAuction(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
@@ -126,7 +126,7 @@ export function handleSettleAuction(event: SettleAuctionEvent): void {
 }
 
 export function handleStartAuction(event: StartAuctionEvent): void {
-  let entity = new StartAuction(
+  let entity = new SurplusAuctionHouseStartAuction(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
@@ -144,7 +144,7 @@ export function handleStartAuction(event: StartAuctionEvent): void {
 export function handleTerminateAuctionPrematurely(
   event: TerminateAuctionPrematurelyEvent
 ): void {
-  let entity = new TerminateAuctionPrematurely(
+  let entity = new SurplusAuctionHouseTerminateAuctionPrematurely(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;

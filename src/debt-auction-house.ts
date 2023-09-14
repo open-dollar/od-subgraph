@@ -130,7 +130,6 @@ export function handleStartAuction(event: StartAuctionEvent): void {
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
-
   entity._amountToSell = event.params._amountToSell;
   entity._amountToRaise = event.params._amountToRaise;
   entity._auctionDeadline = event.params._auctionDeadline;

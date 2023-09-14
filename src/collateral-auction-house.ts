@@ -12,9 +12,9 @@ import {
   BuyCollateral,
   ModifyParameters,
   RemoveAuthorization,
-  SettleAuction,
-  StartAuction,
-  TerminateAuctionPrematurely,
+  collateralAuctionHouseSettleAuction,
+  collateralAuctionHouseStartAuction,
+  collateralAuctionHouseTerminateAuctionPrematurely,
 } from "../generated/schema";
 
 export function handleAddAuthorization(event: AddAuthorizationEvent): void {
@@ -78,13 +78,12 @@ export function handleRemoveAuthorization(
 }
 
 export function handleSettleAuction(event: SettleAuctionEvent): void {
-  let entity = new SettleAuction(
+  let entity = new collateralAuctionHouseSettleAuction(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
-
-  // entity._leftoverReceiver = event.params._leftoverReceiver
-  // entity._leftoverCollateral = event.params._leftoverCollateral
+  entity._leftoverReceiver = event.params._leftoverReceiver;
+  entity._leftoverCollateral = event.params._leftoverCollateral;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -94,17 +93,17 @@ export function handleSettleAuction(event: SettleAuctionEvent): void {
 }
 
 export function handleStartAuction(event: StartAuctionEvent): void {
-  let entity = new StartAuction(
+  let entity = new collateralAuctionHouseStartAuction(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
 
   entity._amountToSell = event.params._amountToSell;
   entity._amountToRaise = event.params._amountToRaise;
-  // entity._initialDiscount = event.params._initialDiscount
-  // entity._maxDiscount = event.params._maxDiscount
-  // entity._perSecondDiscountUpdateRate =
-  // event.params._perSecondDiscountUpdateRate
+  entity._initialDiscount = event.params._initialDiscount;
+  entity._maxDiscount = event.params._maxDiscount;
+  entity._perSecondDiscountUpdateRate =
+    event.params._perSecondDiscountUpdateRate;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -116,13 +115,12 @@ export function handleStartAuction(event: StartAuctionEvent): void {
 export function handleTerminateAuctionPrematurely(
   event: TerminateAuctionPrematurelyEvent
 ): void {
-  let entity = new TerminateAuctionPrematurely(
+  let entity = new collateralAuctionHouseTerminateAuctionPrematurely(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._auctionId = event.params._id;
-
-  // entity._leftoverReceiver = event.params._leftoverReceiver
-  // entity._leftoverCollateral = event.params._leftoverCollateral
+  entity._leftoverReceiver = event.params._leftoverReceiver;
+  entity._leftoverCollateral = event.params._leftoverCollateral;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;

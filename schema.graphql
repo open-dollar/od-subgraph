@@ -253,12 +253,10 @@ type CollateralAuctionHouseBuyCollateral @entity(immutable: true) {
 
 type CollateralAuctionHouseStartAuction @entity(immutable: true) {
   id: Bytes!
+  _auctioneer: Bytes! # address
   _auctionId: BigInt! # uint256
   _amountToSell: BigInt! # uint256
   _amountToRaise: BigInt! # uint256
-  _initialDiscount: BigInt! # uint256
-  _maxDiscount: BigInt! # uint256
-  _perSecondDiscountUpdateRate: BigInt! # uint256
   address: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!

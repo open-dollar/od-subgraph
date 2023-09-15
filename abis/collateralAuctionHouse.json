@@ -1,10 +1,9 @@
 [
   {
     "inputs": [
-      { "internalType": "address", "name": "_safeEngine", "type": "address" },
       {
         "internalType": "address",
-        "name": "_oracleRelayer",
+        "name": "_safeEngine",
         "type": "address"
       },
       {
@@ -12,28 +11,15 @@
         "name": "_liquidationEngine",
         "type": "address"
       },
-      { "internalType": "bytes32", "name": "_cType", "type": "bytes32" },
       {
-        "components": [
-          {
-            "internalType": "uint256",
-            "name": "minSystemCoinDeviation",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "lowerSystemCoinDeviation",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "upperSystemCoinDeviation",
-            "type": "uint256"
-          }
-        ],
-        "internalType": "struct ICollateralAuctionHouse.CollateralAuctionHouseSystemCoinParams",
-        "name": "_cahParams",
-        "type": "tuple"
+        "internalType": "address",
+        "name": "_oracleRelayer",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_cType",
+        "type": "bytes32"
       },
       {
         "components": [
@@ -56,71 +42,164 @@
             "internalType": "uint256",
             "name": "perSecondDiscountUpdateRate",
             "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "lowerCollateralDeviation",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "upperCollateralDeviation",
-            "type": "uint256"
           }
         ],
         "internalType": "struct ICollateralAuctionHouse.CollateralAuctionHouseParams",
-        "name": "_cahCParams",
+        "name": "_cahParams",
         "type": "tuple"
       }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
   },
-  { "inputs": [], "name": "AlreadyAuthorized", "type": "error" },
-  { "inputs": [], "name": "CAH_CollateralFSMInvalidValue", "type": "error" },
-  { "inputs": [], "name": "CAH_DustyAuction", "type": "error" },
-  { "inputs": [], "name": "CAH_InexistentAuction", "type": "error" },
-  { "inputs": [], "name": "CAH_InvalidBid", "type": "error" },
-  { "inputs": [], "name": "CAH_InvalidLeftToRaise", "type": "error" },
+  {
+    "inputs": [],
+    "name": "AlreadyAuthorized",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CAH_CollateralOracleInvalidValue",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CAH_DustyAuction",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CAH_InexistentAuction",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CAH_InvalidBid",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CAH_InvalidLeftToRaise",
+    "type": "error"
+  },
   {
     "inputs": [],
     "name": "CAH_InvalidRedemptionPriceProvided",
     "type": "error"
   },
-  { "inputs": [], "name": "CAH_NoCollateralForSale", "type": "error" },
-  { "inputs": [], "name": "CAH_NothingToRaise", "type": "error" },
-  { "inputs": [], "name": "CAH_NullBoughtAmount", "type": "error" },
-  { "inputs": [], "name": "CallerNotFactory", "type": "error" },
-  { "inputs": [], "name": "NotAuthorized", "type": "error" },
-  { "inputs": [], "name": "NotFactoryDeployment", "type": "error" },
+  {
+    "inputs": [],
+    "name": "CAH_NoCollateralForSale",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CAH_NothingToRaise",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CAH_NullBoughtAmount",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CallerNotFactory",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ContractIsDisabled",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ContractIsEnabled",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NonDisableable",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotAuthorized",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotFactoryDeployment",
+    "type": "error"
+  },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_x", "type": "uint256" },
-      { "internalType": "uint256", "name": "_y", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_x",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_y",
+        "type": "uint256"
+      }
     ],
     "name": "NotGreaterOrEqualThan",
     "type": "error"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_x", "type": "uint256" },
-      { "internalType": "uint256", "name": "_y", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_x",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_y",
+        "type": "uint256"
+      }
     ],
     "name": "NotGreaterThan",
     "type": "error"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_x", "type": "uint256" },
-      { "internalType": "uint256", "name": "_y", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_x",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_y",
+        "type": "uint256"
+      }
     ],
     "name": "NotLesserOrEqualThan",
     "type": "error"
   },
-  { "inputs": [], "name": "NullAddress", "type": "error" },
-  { "inputs": [], "name": "Unauthorized", "type": "error" },
-  { "inputs": [], "name": "UnrecognizedCType", "type": "error" },
-  { "inputs": [], "name": "UnrecognizedParam", "type": "error" },
+  {
+    "inputs": [],
+    "name": "NullAddress",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Unauthorized",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnrecognizedCType",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnrecognizedParam",
+    "type": "error"
+  },
   {
     "anonymous": false,
     "inputs": [
@@ -169,6 +248,12 @@
       }
     ],
     "name": "BuyCollateral",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [],
+    "name": "DisableContract",
     "type": "event"
   },
   {
@@ -250,6 +335,12 @@
         "type": "uint256"
       },
       {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_auctioneer",
+        "type": "address"
+      },
+      {
         "indexed": false,
         "internalType": "uint256",
         "name": "_blockTimestamp",
@@ -265,24 +356,6 @@
         "indexed": false,
         "internalType": "uint256",
         "name": "_amountToRaise",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_initialDiscount",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_maxDiscount",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_perSecondDiscountUpdateRate",
         "type": "uint256"
       }
     ],
@@ -323,39 +396,39 @@
   {
     "inputs": [],
     "name": "AUCTION_HOUSE_TYPE",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "AUCTION_TYPE",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_auctionId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_auctionId",
+        "type": "uint256"
+      }
     ],
     "name": "_auctions",
     "outputs": [
-      { "internalType": "uint256", "name": "amountToSell", "type": "uint256" },
-      { "internalType": "uint256", "name": "amountToRaise", "type": "uint256" },
       {
         "internalType": "uint256",
-        "name": "currentDiscount",
-        "type": "uint256"
-      },
-      { "internalType": "uint256", "name": "maxDiscount", "type": "uint256" },
-      {
-        "internalType": "uint256",
-        "name": "perSecondDiscountUpdateRate",
+        "name": "amountToSell",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "latestDiscountUpdateTime",
+        "name": "amountToRaise",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "initialTimestamp",
         "type": "uint256"
       },
       {
@@ -374,47 +447,26 @@
   },
   {
     "inputs": [],
-    "name": "_cParams",
-    "outputs": [
-      { "internalType": "uint256", "name": "minimumBid", "type": "uint256" },
-      { "internalType": "uint256", "name": "minDiscount", "type": "uint256" },
-      { "internalType": "uint256", "name": "maxDiscount", "type": "uint256" },
-      {
-        "internalType": "uint256",
-        "name": "perSecondDiscountUpdateRate",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "lowerCollateralDeviation",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "upperCollateralDeviation",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "_params",
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "_minSystemCoinDeviation",
+        "name": "minimumBid",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_lowerSystemCoinDeviation",
+        "name": "minDiscount",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_upperSystemCoinDeviation",
+        "name": "maxDiscount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "perSecondDiscountUpdateRate",
         "type": "uint256"
       }
     ],
@@ -423,7 +475,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
     ],
     "name": "addAuthorization",
     "outputs": [],
@@ -431,17 +487,12 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
-    "name": "amountToRaise",
-    "outputs": [
-      { "internalType": "uint256", "name": "_amountToRaise", "type": "uint256" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
-      { "internalType": "uint256", "name": "_auctionId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_auctionId",
+        "type": "uint256"
+      }
     ],
     "name": "auctions",
     "outputs": [
@@ -459,22 +510,7 @@
           },
           {
             "internalType": "uint256",
-            "name": "currentDiscount",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "maxDiscount",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "perSecondDiscountUpdateRate",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "latestDiscountUpdateTime",
+            "name": "initialTimestamp",
             "type": "uint256"
           },
           {
@@ -499,89 +535,30 @@
   {
     "inputs": [],
     "name": "auctionsStarted",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
-    ],
-    "name": "authorizedAccounts",
-    "outputs": [
-      { "internalType": "bool", "name": "_authorized", "type": "bool" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "authorizedAccounts",
-    "outputs": [
-      { "internalType": "address[]", "name": "_accounts", "type": "address[]" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "bidAmount",
-    "outputs": [
-      { "internalType": "uint256", "name": "_bidAmount", "type": "uint256" }
-    ],
-    "stateMutability": "pure",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "_id", "type": "uint256" },
-      { "internalType": "uint256", "name": "_wad", "type": "uint256" }
-    ],
-    "name": "buyCollateral",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "cParams",
     "outputs": [
       {
-        "components": [
-          {
-            "internalType": "uint256",
-            "name": "minimumBid",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "minDiscount",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "maxDiscount",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "perSecondDiscountUpdateRate",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "lowerCollateralDeviation",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "upperCollateralDeviation",
-            "type": "uint256"
-          }
-        ],
-        "internalType": "struct ICollateralAuctionHouse.CollateralAuctionHouseParams",
-        "name": "_cahCParams",
-        "type": "tuple"
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
+    ],
+    "name": "authorizedAccounts",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "_authorized",
+        "type": "bool"
       }
     ],
     "stateMutability": "view",
@@ -589,25 +566,86 @@
   },
   {
     "inputs": [],
+    "name": "authorizedAccounts",
+    "outputs": [
+      {
+        "internalType": "address[]",
+        "name": "_accounts",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_wad",
+        "type": "uint256"
+      }
+    ],
+    "name": "buyCollateral",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "_boughtCollateral",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_adjustedBid",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "collateralType",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "factory",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "contractEnabled",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
-    "name": "forgoneCollateralReceiver",
+    "inputs": [],
+    "name": "disableContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "factory",
     "outputs": [
       {
         "internalType": "address",
-        "name": "_forgoneCollateralReceiver",
+        "name": "",
         "type": "address"
       }
     ],
@@ -616,38 +654,35 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_id", "type": "uint256" },
-      { "internalType": "uint256", "name": "_wad", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
     ],
-    "name": "getAdjustedBid",
-    "outputs": [
-      { "internalType": "bool", "name": "_valid", "type": "bool" },
-      { "internalType": "uint256", "name": "_adjustedBid", "type": "uint256" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "_id", "type": "uint256" },
-      { "internalType": "uint256", "name": "_wad", "type": "uint256" }
-    ],
-    "name": "getApproximateCollateralBought",
+    "name": "getAuctionDiscount",
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "_boughtCollateral",
+        "name": "_auctionDiscount",
         "type": "uint256"
-      },
-      { "internalType": "uint256", "name": "_adjustedBid", "type": "uint256" }
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_id", "type": "uint256" },
-      { "internalType": "uint256", "name": "_wad", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_wad",
+        "type": "uint256"
+      }
     ],
     "name": "getCollateralBought",
     "outputs": [
@@ -656,178 +691,12 @@
         "name": "_boughtCollateral",
         "type": "uint256"
       },
-      { "internalType": "uint256", "name": "_adjustedBid", "type": "uint256" }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
       {
         "internalType": "uint256",
-        "name": "_systemCoinRedemptionPrice",
+        "name": "_adjustedBid",
         "type": "uint256"
       }
     ],
-    "name": "getCollateralFSMAndFinalSystemCoinPrices",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "_cFsmPriceFeedValue",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_sCoinAdjustedPrice",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getCollateralMarketPrice",
-    "outputs": [
-      { "internalType": "uint256", "name": "_priceFeed", "type": "uint256" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_collateralFsmPriceFeedValue",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_collateralMarketPriceFeedValue",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_systemCoinPriceFeedValue",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_customDiscount",
-        "type": "uint256"
-      }
-    ],
-    "name": "getDiscountedCollateralPrice",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "_discountedCollateralPrice",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_collateralFsmPriceFeedValue",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_collateralMarketPriceFeedValue",
-        "type": "uint256"
-      }
-    ],
-    "name": "getFinalBaseCollateralPrice",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "_adjustedMarketPrice",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_systemCoinRedemptionPrice",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_systemCoinMarketPrice",
-        "type": "uint256"
-      }
-    ],
-    "name": "getFinalSystemCoinPrice",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "_finalSystemCoinPrice",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
-    "name": "getNextCurrentDiscount",
-    "outputs": [
-      { "internalType": "uint256", "name": "_nextDiscount", "type": "uint256" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_redemptionPrice",
-        "type": "uint256"
-      }
-    ],
-    "name": "getSystemCoinCeilingDeviatedPrice",
-    "outputs": [
-      { "internalType": "uint256", "name": "_ceilingPrice", "type": "uint256" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_redemptionPrice",
-        "type": "uint256"
-      }
-    ],
-    "name": "getSystemCoinFloorDeviatedPrice",
-    "outputs": [
-      { "internalType": "uint256", "name": "_floorPrice", "type": "uint256" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getSystemCoinMarketPrice",
-    "outputs": [
-      { "internalType": "uint256", "name": "_priceFeed", "type": "uint256" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "lastReadRedemptionPrice",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -846,9 +715,21 @@
   },
   {
     "inputs": [
-      { "internalType": "bytes32", "name": "_cType", "type": "bytes32" },
-      { "internalType": "bytes32", "name": "_param", "type": "bytes32" },
-      { "internalType": "bytes", "name": "_data", "type": "bytes" }
+      {
+        "internalType": "bytes32",
+        "name": "_cType",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_param",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+      }
     ],
     "name": "modifyParameters",
     "outputs": [],
@@ -857,8 +738,16 @@
   },
   {
     "inputs": [
-      { "internalType": "bytes32", "name": "_param", "type": "bytes32" },
-      { "internalType": "bytes", "name": "_data", "type": "bytes" }
+      {
+        "internalType": "bytes32",
+        "name": "_param",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+      }
     ],
     "name": "modifyParameters",
     "outputs": [],
@@ -886,21 +775,26 @@
         "components": [
           {
             "internalType": "uint256",
-            "name": "minSystemCoinDeviation",
+            "name": "minimumBid",
             "type": "uint256"
           },
           {
             "internalType": "uint256",
-            "name": "lowerSystemCoinDeviation",
+            "name": "minDiscount",
             "type": "uint256"
           },
           {
             "internalType": "uint256",
-            "name": "upperSystemCoinDeviation",
+            "name": "maxDiscount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "perSecondDiscountUpdateRate",
             "type": "uint256"
           }
         ],
-        "internalType": "struct ICollateralAuctionHouse.CollateralAuctionHouseSystemCoinParams",
+        "internalType": "struct ICollateralAuctionHouse.CollateralAuctionHouseParams",
         "name": "_cahParams",
         "type": "tuple"
       }
@@ -909,30 +803,12 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "raisedAmount",
-    "outputs": [
-      { "internalType": "uint256", "name": "_raisedAmount", "type": "uint256" }
-    ],
-    "stateMutability": "pure",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
-    "name": "remainingAmountToSell",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "_remainingAmountToSell",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
     ],
     "name": "removeAuthorization",
     "outputs": [],
@@ -943,13 +819,23 @@
     "inputs": [],
     "name": "safeEngine",
     "outputs": [
-      { "internalType": "contract ISAFEEngine", "name": "", "type": "address" }
+      {
+        "internalType": "contract ISAFEEngine",
+        "name": "",
+        "type": "address"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "name": "settleAuction",
     "outputs": [],
     "stateMutability": "pure",
@@ -972,17 +858,31 @@
         "name": "_amountToRaise",
         "type": "uint256"
       },
-      { "internalType": "uint256", "name": "_amountToSell", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_amountToSell",
+        "type": "uint256"
+      }
     ],
     "name": "startAuction",
     "outputs": [
-      { "internalType": "uint256", "name": "_id", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
     ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
+    ],
     "name": "terminateAuctionPrematurely",
     "outputs": [],
     "stateMutability": "nonpayable",

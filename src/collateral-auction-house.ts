@@ -40,12 +40,9 @@ export function handleStartAuction(event: StartAuctionEvent): void {
   );
   entity._auctionId = event.params._id;
 
+  entity._auctioneer = event.params._auctioneer;
   entity._amountToSell = event.params._amountToSell;
   entity._amountToRaise = event.params._amountToRaise;
-  entity._initialDiscount = event.params._initialDiscount;
-  entity._maxDiscount = event.params._maxDiscount;
-  entity._perSecondDiscountUpdateRate =
-    event.params._perSecondDiscountUpdateRate;
   entity.address = event.address;
 
   entity.blockNumber = event.block.number;

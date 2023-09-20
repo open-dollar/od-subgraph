@@ -6,9 +6,8 @@ dataSources:
     name: surplusAuctionHouse
     network: arbitrum-goerli
     source:
-      address: "0x9C0a6A3241D66baa9B8A9696a9b43f7dA97E9FE4"
       abi: surplusAuctionHouse
-      startBlock: 39926696
+      startBlock: 42499468
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -50,9 +49,8 @@ dataSources:
     name: debtAuctionHouse
     network: arbitrum-goerli
     source:
-      address: "0x10EbCf3989aE2fFf635d383685Cfbb4912908b81"
       abi: debtAuctionHouse
-      startBlock: 39926696
+      startBlock: 42499468
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -94,9 +92,8 @@ dataSources:
     name: collateralAuctionHouseFactory
     network: arbitrum-goerli
     source:
-      address: "0x79399Df38Ca64F8B5dDC7B4BAF9322f843cd94AE"
       abi: collateralAuctionHouseFactory
-      startBlock: 39926696
+      startBlock: 42499468
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7

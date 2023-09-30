@@ -1,13 +1,13 @@
 {
   "arbitrum-goerli": {
     "collateralAuctionHouseFactory": {
-      "address": "0xc8062817d63a4eC3AD465afa37894b4058E7230C"
+      "address": "0x8a9E54D2c5a4FAb57a32C1f72B3Df68e95451729"
     },
     "surplusAuctionHouse": {
-      "address": "0x701572AA1Db1965300ADad95e21687834611a8a9"
+      "address": "0xc3D2378ADA77c65eC51a02bf87b6484D2e74213C"
     },
     "debtAuctionHouse": {
-      "address": "0xC6B113e4c6F13162A8f8149D764E25272B1D0771"
+      "address": "0xCb8F803f2c19F3FbB5ceB0D1904b81C7D3725040"
     }
   },
   "optimism-goerli": {

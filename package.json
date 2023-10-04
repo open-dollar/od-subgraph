@@ -1,6 +1,6 @@
 {
-  "name": "od-test",
-  "license": "UNLICENSED",
+  "name": "od-subgraph",
+  "license": "MIT",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
@@ -14,5 +14,7 @@
     "@graphprotocol/graph-cli": "0.57.0",
     "@graphprotocol/graph-ts": "0.30.0"
   },
-  "devDependencies": { "matchstick-as": "0.5.0" }
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
 }

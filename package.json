@@ -1,13 +1,14 @@
 {
   "name": "od-subgraph",
+  "version": "v1.5.5-rc.1",
   "license": "MIT",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ od-test",
-    "create-local": "graph create --node http://localhost:8020/ od-test",
-    "remove-local": "graph remove --node http://localhost:8020/ od-test",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 od-test",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ open-dollar---testnet",
+    "create-local": "graph create --node http://localhost:8020/ open-dollar---testnet",
+    "remove-local": "graph remove --node http://localhost:8020/ open-dollar---testnet",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 open-dollar---testnet",
     "test": "graph test"
   },
   "dependencies": {

@@ -8,6 +8,9 @@
     },
     "debtAuctionHouse": {
       "address": "0x4e3eb382Add436542188b37b2d10077fb6E4DCF7"
+    },
+    "vault721": {
+      "address": "0xea319d259e93f68Ed6414134ffCFA4912Bea85dB"
     }
   },
   "optimism-goerli": {

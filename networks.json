@@ -1,4 +1,18 @@
 {
+  "abitrum-sepolia": {
+    "collateralAuctionHouseFactory": {
+      "address": "0x56Cae2E66D0Dd4C0e6f1944B82F3C082DCCe41EF",
+      "startBlock": 764647
+    },
+    "surplusAuctionHouse": {
+      "address": "0x0eFe9B7aF21C8d345fff787082bbB5fc7B07BA82",
+      "startBlock": 764647
+    },
+    "debtAuctionHouse": {
+      "address": "0x750ecadB0086F28e541f09eF11a759a5548E97f9",
+      "startBlock": 764647
+    }
+  },
   "arbitrum-goerli": {
     "collateralAuctionHouseFactory": {
       "address": "0x321d278E1bDF686145C8fD185dDdA2178A3e3424"

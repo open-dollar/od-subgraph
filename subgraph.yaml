@@ -122,6 +122,35 @@ dataSources:
         - event: RemoveAuthorization(address)
           handler: handleRemoveAuthorization
       file: ./src/collateral-auction-house-factory.ts
+  - kind: ethereum
+    name: vault721
+    network: arbitrum-sepolia
+    source:
+      address: "0x677Bd90AB6A27552D0744a0Af196DA127f014656"
+      abi: vault721
+      startBlock: 764602
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - CreateProxy
+        - Transfer
+      abis:
+        - name: vault721
+          file: ./abis/vault721.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: CreateProxy(indexed address,address)
+          handler: handleCreateProxy
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/vault-721.ts
 templates:
   - kind: ethereum
     name: collateralAuctionHouse

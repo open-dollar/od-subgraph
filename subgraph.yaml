@@ -124,11 +124,11 @@ dataSources:
       file: ./src/collateral-auction-house-factory.ts
   - kind: ethereum
     name: vault721
-    network: arbitrum-goerli
+    network: arbitrum-sepolia
     source:
-      address: "0xea319d259e93f68Ed6414134ffCFA4912Bea85dB"
+      address: "0x677Bd90AB6A27552D0744a0Af196DA127f014656"
       abi: vault721
-      startBlock: 48721684
+      startBlock: 764602
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7

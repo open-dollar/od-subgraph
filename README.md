@@ -125,10 +125,10 @@ yarn codegen
 yarn build
 ```
 
-3) Replace the `network` property in `docker-compose.yml` with the following (we'll use Arbitrum-Sepolia as an example with an Infura RPC):
+3) Add your RPC endpoint to a ETHEREUM_RPC_URL variable in your .env file. Then, replace the `network` property in `docker-compose.yml` with the following (we'll use Arbitrum-Sepolia as an example):
 
 ```yaml
-network: arbitrum-sepolia:https://arbitrum-sepolia.infura.io/v3/infura-key-here
+ethereum: 'arbitrum-sepolia:${ETHEREUM_RPC_URL}'
 ```
 
 4) Replace the `network` property in `subgraph.yaml` for each contract with the following (if it's not already arbitrum-sepolia):

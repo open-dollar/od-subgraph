@@ -15,8 +15,10 @@ Install the necessary dependencies:
 yarn install
 ```
 
+
 We have a couple options when deploying our subgraph. We can deploy to the hosted service provided by The Graph,
 we can deploy to a local Graph node, or we can deploy to our team's private graph node hosted on Render. Our local Graph node can be used with a local Ganache chain or any other network.
+
 We'll go over setup for all of these options.
 
 ### Deploying to the hosted service
@@ -202,7 +204,7 @@ yarn create-render
 8) Deploy the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
 
 ```bash
-yarn deploy-local
+yarn deploy-render
 ```
 
 9) You can now query the subgraph at http://localhost:8000/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql. It may take a few minutes for the subgraph to sync before you can get results from the query.

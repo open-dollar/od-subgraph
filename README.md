@@ -212,7 +212,7 @@ yarn deploy-local
 If an error occurs when deploying to render please check the following:
 
 1) Verify that the username and password you're using for basic authentication are correct by checking the current
-.env values in the Render deployment 
+.env values in the nginx Render deployment 
 2) Verify that the logs in each of the services (IPFS, graph node, DB) do not have errors and if they do then run a re-deploy
 for that service (and probably the graph node service itself since it depends on IPFS and the DB)
 3) Verify that the nginx.conf secret file in the graph node Render project is redirecting requests to the correct upstream servers 

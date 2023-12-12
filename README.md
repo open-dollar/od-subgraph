@@ -207,7 +207,9 @@ yarn create-render
 yarn deploy-render
 ```
 
-9) You can now query the subgraph at http://localhost:8000/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql. It may take a few minutes for the subgraph to sync before you can get results from the query.
+9) You can now query the subgraph at https://${GRAPH_NODE_PLAYGROUND_BASE_URL}/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql. It may take a few minutes for the subgraph to sync before you can get results from the query.
+
+*Important*: note that you cannot access the playground through the NGINX endpoint, you must use the base URL of the graph node service itself
 
 ## Render Troubleshooting 
 

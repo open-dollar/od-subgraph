@@ -193,7 +193,7 @@ network: arbitrum-sepolia
 docker-compose up
 ```
 
-6) Create a .env file and set the .env variables that are listed in the .env.example
+6) Create a .env file and set the .env variables that are listed in the .env.example (to find the current .env variables visit the Environment Variables section of the NGINX Render service)
 
 7) Create the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
 
@@ -207,9 +207,55 @@ yarn create-render
 yarn deploy-render
 ```
 
-9) You can now query the subgraph at https://${GRAPH_NODE_PLAYGROUND_BASE_URL}/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql. It may take a few minutes for the subgraph to sync before you can get results from the query.
+## Querying Render Subgraphs
+
+After deploying your subgraph to Render, you can now query the subgraph at https://${GRAPH_NODE_PLAYGROUND_BASE_URL}/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql. It may take a few minutes for the subgraph to sync before you can get results from the query.
 
 *Important*: note that you cannot access the playground through the NGINX endpoint, you must use the base URL of the graph node service itself
+
+To use the subgraph in the SDK use the URL https://${GRAPH_NODE_PLAYGROUND_BASE_URL}/subgraphs/name/NAME_OF_YOUR_SUBGRAPH. Make sure to rebuild the SDK and point your 
+app to use your local build of the SDK before attempting to test your Render-deployed subgraph
+
+If you want to verify in the Render Postgres database that your subgraph exists, follow these steps:
+1) Visit the Postgres service in Render and click on Shell in the sidebar
+2) To query the shell we need to enter as a user first. Enter the following in the shell, replacing POSTGRES_USER with the POSTGRES_USER variable in the Render .env:
+
+```bash
+psql -U POSTGRES_USER
+```
+
+3) To see what databases are available in our Postgres database we can use this query:
+
+```bash
+\l
+```
+
+4) To enter the database with our subgraphs you can use the following query, replacing POSTGRES_DB with the POSTGRES_DB variable in the Render .env:
+
+```bash
+\c POSTGRES_DB
+```
+
+5) You can see all the available tables in POSTGRES_DB with the following command:
+
+```bash
+\dt
+```
+
+6) Finally, to see the names of the subgraphs deployed to Render we can use the following query (note that capitalization matters):
+
+```bash
+SELECT * FROM subgraphs.subgraph;
+```
+
+7) If no data is returned from the above query it's because there are no deployed subgraphs in our Render deployment.
+To be absolutely sure there are no deployed subgraphs we can use the following query:
+
+```bash
+SELECT COUNT(*) FROM subgraphs.subgraph;
+```
+
+If there are no deployed subgraphs then the count should be 0
 
 ## Render Troubleshooting 
 

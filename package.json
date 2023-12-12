@@ -9,6 +9,9 @@
     "create-local": "graph create --node http://localhost:8020/ open-dollar---testnet",
     "remove-local": "graph remove --node http://localhost:8020/ open-dollar---testnet",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 open-dollar---testnet",
+    "create-render": "source .env && graph create open-dollar---testnet --node https://$NGINX_USERNAME:$NGINX_PASSWORD@$NGINX_GRAPH_NODE_RPC_URL",
+    "remove-render": "source .env && graph remove open-dollar---testnet --node https://$NGINX_USERNAME:$NGINX_PASSWORD@$NGINX_GRAPH_NODE_RPC_URL",
+    "deploy-render": "source .env && graph deploy open-dollar---testnet --node https://$NGINX_USERNAME:$NGINX_PASSWORD@$NGINX_GRAPH_NODE_RPC_URL --ipfs $IPFS_URL",
     "test": "graph test"
   },
   "dependencies": {

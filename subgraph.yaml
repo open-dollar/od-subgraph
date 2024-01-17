@@ -7,8 +7,8 @@ dataSources:
     network: arbitrum-sepolia
     source:
       abi: surplusAuctionHouse
-      address: "0x0eFe9B7aF21C8d345fff787082bbB5fc7B07BA82"
-      startBlock: 764602
+      address: "0xCACA0b053d46bDFfea441Cef3364cc4582c72e23"
+      startBlock: 7425558
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -51,8 +51,8 @@ dataSources:
     network: arbitrum-sepolia
     source:
       abi: debtAuctionHouse
-      address: "0x750ecadB0086F28e541f09eF11a759a5548E97f9"
-      startBlock: 764602
+      address: "0xaC427c92a5c3a687c1F8Fa95b885f535f1034FC4"
+      startBlock: 7425558
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -94,9 +94,9 @@ dataSources:
     name: collateralAuctionHouseFactory
     network: arbitrum-sepolia
     source:
-      address: "0x56Cae2E66D0Dd4C0e6f1944B82F3C082DCCe41EF"
+      address: "0xd31D7574080F2b29Bd61a4037428629b445c35cC"
       abi: collateralAuctionHouseFactory
-      startBlock: 764602
+      startBlock: 7425558
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -126,9 +126,9 @@ dataSources:
     name: vault721
     network: arbitrum-sepolia
     source:
-      address: "0x677Bd90AB6A27552D0744a0Af196DA127f014656"
+      address: "0x445f4bc91D3d96C968044328bF8cE59A7C2D56Da"
       abi: vault721
-      startBlock: 764602
+      startBlock: 7425558
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7

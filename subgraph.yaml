@@ -126,7 +126,7 @@ dataSources:
     name: vault721
     network: arbitrum-sepolia
     source:
-      address: "0x00D2363Ea723d8Bc3D664b87Cf51A04033BD0Ef1"
+      address: "0x445f4bc91D3d96C968044328bF8cE59A7C2D56Da"
       abi: vault721
       startBlock: 7425558
     mapping:

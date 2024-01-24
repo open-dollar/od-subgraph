@@ -41,7 +41,7 @@ dataSources:
           handler: handleRestartAuction
         - event: SettleAuction(indexed uint256,uint256,address,uint256)
           handler: handleSettleAuction
-        - event: StartAuction(indexed uint256,uint256,uint256,uint256,uint256)
+        - event: StartAuction(indexed uint256,indexed address,uint256,uint256,uint256,uint256)
           handler: handleStartAuction
         - event: TerminateAuctionPrematurely(indexed uint256,uint256,address,uint256)
           handler: handleTerminateAuctionPrematurely
@@ -85,7 +85,7 @@ dataSources:
           handler: handleRestartAuction
         - event: SettleAuction(indexed uint256,uint256,address,uint256)
           handler: handleSettleAuction
-        - event: StartAuction(indexed uint256,uint256,uint256,uint256,uint256)
+        - event: StartAuction(indexed uint256,indexed address,uint256,uint256,uint256,uint256)
           handler: handleStartAuction
         - event: TerminateAuctionPrematurely(indexed uint256,uint256,address,uint256)
           handler: handleTerminateAuctionPrematurely

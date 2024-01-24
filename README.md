@@ -15,28 +15,28 @@ Install the necessary dependencies:
 yarn install
 ```
 
-
 We have a couple options when deploying our subgraph. We can deploy to the hosted service provided by The Graph,
 we can deploy to a local Graph node, or we can deploy to our team's private graph node hosted on Render. Our local Graph node can be used with a local Ganache chain or any other network.
 
 We'll go over setup for all of these options.
 
 ### Deploying to the hosted service
-1) Generate the subgraph's types and ABIs:
+
+1. Generate the subgraph's types and ABIs:
 
 ```bash
 yarn codegen
 ```
 
-2) Build the subgraph with the following command:
+2. Build the subgraph with the following command:
 
 ```bash
 yarn build
 ```
 
-3) Create a new subgraph on the hosted service, [Subgraph Studio](https://thegraph.com/studio/)
+3. Create a new subgraph on the hosted service, [Subgraph Studio](https://thegraph.com/studio/)
 
-4) In your newly created subgraph, you'll find instructions for initializing your subgraph with the Graph CLI and
+4. In your newly created subgraph, you'll find instructions for initializing your subgraph with the Graph CLI and
    authenticating with the hosted service. We don't need to initialize the subgraph since we already have the code available to us,
    but we do need to authenticate. To do so, run the following command:
 
@@ -44,164 +44,165 @@ yarn build
 graph auth --studio SUBGRAPH_SECRET_HERE
 ```
 
-5) Finally, deploy the subgraph with the following command. Make sure you rename the subgraph name in package.json to match the name of your subgraph:
+5. Finally, deploy the subgraph with the following command. Make sure you rename the subgraph name in package.json to match the name of your subgraph:
 
 ```bash
 yarn deploy
 ```
 
 ### Deploying to a local Graph node w/Ganaache
-1) Generate the subgraph's types and ABIs:
+
+1. Generate the subgraph's types and ABIs:
 
 ```bash
 yarn codegen
 ```
 
-2) Build the subgraph with the following command:
+2. Build the subgraph with the following command:
 
 ```bash
 yarn build
 ```
 
-3) Set up the Ganache CLI
+3. Set up the Ganache CLI
 
 ```bash
 yarn global add truffle ganache-cli
 ```
 
-4) Start the Ganache CLI. We add -h 0.0.0.0 to make it accessible from within Docker
+4. Start the Ganache CLI. We add -h 0.0.0.0 to make it accessible from within Docker
 
 ```bash
 ganache-cli -h 0.0.0.0
 ```
 
-5) Replace the `network` property in `docker-compose.yml` with the following:
+5. Replace the `network` property in `docker-compose.yml` with the following:
 
 ```yaml
 network: mainnet:http://host.docker.internal:8545
 ```
 
-6) Replace the `network` property in `subgraph.yaml` for each contract with the following:
+6. Replace the `network` property in `subgraph.yaml` for each contract with the following:
 
 ```yaml
 network: mainnet
 ```
 
-7) Replace the startBlock property in `subgraph.yaml` for each contract with the latest block value in your running Ganache instance. It should look something like this:
+7. Replace the startBlock property in `subgraph.yaml` for each contract with the latest block value in your running Ganache instance. It should look something like this:
 
 ```yaml
 startBlock: 8
 ```
 
-8) Start the Graph node with the following command:
+8. Start the Graph node with the following command:
 
 ```bash
 docker-compose up
 ```
 
-9) Create the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
+9. Create the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
 
 ```bash
 yarn create-local
 ```
 
-10) Deploy the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
+10. Deploy the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
 
 ```bash
 yarn deploy-local
 ```
 
-11) You can now query the subgraph at http://localhost:8000/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql
+11. You can now query the subgraph at http://localhost:8000/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql
 
 ### Deploying to a local Graph node w/any network
 
-1) Generate the subgraph's types and ABIs:
+1. Generate the subgraph's types and ABIs:
 
 ```bash
 yarn codegen
 ```
 
-2) Build the subgraph with the following command:
+2. Build the subgraph with the following command:
 
 ```bash
 yarn build
 ```
 
-3) Add your RPC endpoint to a ETHEREUM_RPC_URL variable in your .env file. Then, replace the `network` property in `docker-compose.yml` with the following (we'll use Arbitrum-Sepolia as an example):
+3. Add your RPC endpoint to a ETHEREUM_RPC_URL variable in your .env file. Then, replace the `network` property in `docker-compose.yml` with the following (we'll use Arbitrum-Sepolia as an example):
 
 ```yaml
-ethereum: 'arbitrum-sepolia:${ETHEREUM_RPC_URL}'
+ethereum: "arbitrum-sepolia:${ETHEREUM_RPC_URL}"
 ```
 
-4) Replace the `network` property in `subgraph.yaml` for each contract with the following (if it's not already arbitrum-sepolia):
+4. Replace the `network` property in `subgraph.yaml` for each contract with the following (if it's not already arbitrum-sepolia):
 
 ```yaml
 network: arbitrum-sepolia
 ```
 
-5) Start the Graph node with the following command. Make sure you wait for the Graph node to start logging its sync progress
+5. Start the Graph node with the following command. Make sure you wait for the Graph node to start logging its sync progress
    before deploying your subgraph:
 
 ```bash
 docker-compose up
 ```
 
-6) Create the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
+6. Create the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
 
 ```bash
 yarn create-local
 ```
 
-7) Deploy the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
+7. Deploy the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
 
 ```bash
 yarn deploy-local
 ```
 
-8) You can now query the subgraph at http://localhost:8000/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql. It may take a few minutes for the subgraph to sync before you can get results from the query.
+8. You can now query the subgraph at http://localhost:8000/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql. It may take a few minutes for the subgraph to sync before you can get results from the query.
 
 ### Deploying to our team's private Render Graph node
 
-1) Generate the subgraph's types and ABIs:
+1. Generate the subgraph's types and ABIs:
 
 ```bash
 yarn codegen
 ```
 
-2) Build the subgraph with the following command:
+2. Build the subgraph with the following command:
 
 ```bash
 yarn build
 ```
 
-3) Add your RPC endpoint to a ETHEREUM_RPC_URL variable in your .env file. Then, replace the `network` property in `docker-compose.yml` with the following (we'll use Arbitrum-Sepolia as an example):
+3. Add your RPC endpoint to a ETHEREUM_RPC_URL variable in your .env file. Then, replace the `network` property in `docker-compose.yml` with the following (we'll use Arbitrum-Sepolia as an example):
 
 ```yaml
-ethereum: 'arbitrum-sepolia:${ETHEREUM_RPC_URL}'
+ethereum: "arbitrum-sepolia:${ETHEREUM_RPC_URL}"
 ```
 
-4) Replace the `network` property in `subgraph.yaml` for each contract with the following (if it's not already arbitrum-sepolia):
+4. Replace the `network` property in `subgraph.yaml` for each contract with the following (if it's not already arbitrum-sepolia):
 
 ```yaml
 network: arbitrum-sepolia
 ```
 
-5) Start the Graph node with the following command. Make sure you wait for the Graph node to start logging its sync progress
+5. Start the Graph node with the following command. Make sure you wait for the Graph node to start logging its sync progress
    before deploying your subgraph:
 
 ```bash
 docker-compose up
 ```
 
-6) Create a .env file and set the .env variables that are listed in the .env.example (to find the current .env variables visit the Environment Variables section of the NGINX Render service)
+6. Create a .env file and set the .env variables that are listed in the .env.example (to find the current .env variables visit the Environment Variables section of the NGINX Render service)
 
-7) Create the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
+7. Create the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
 
 ```bash
 yarn create-render
 ```
 
-8) Deploy the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
+8. Deploy the subgraph with the following command, making sure to replace the name in package.json with the name of your subgraph:
 
 ```bash
 yarn deploy-render
@@ -211,45 +212,46 @@ yarn deploy-render
 
 After deploying your subgraph to Render, you can now query the subgraph at https://${GRAPH_NODE_PLAYGROUND_BASE_URL}/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql. It may take a few minutes for the subgraph to sync before you can get results from the query.
 
-*Important*: note that you cannot access the playground through the NGINX endpoint, you must use the base URL of the graph node service itself
+_Important_: note that you cannot access the playground through the NGINX endpoint, you must use the base URL of the graph node service itself
 
-To use the subgraph in the SDK use the URL https://${GRAPH_NODE_PLAYGROUND_BASE_URL}/subgraphs/name/NAME_OF_YOUR_SUBGRAPH. Make sure to rebuild the SDK and point your 
+To use the subgraph in the SDK use the URL https://${GRAPH_NODE_PLAYGROUND_BASE_URL}/subgraphs/name/NAME_OF_YOUR_SUBGRAPH. Make sure to rebuild the SDK and point your
 app to use your local build of the SDK before attempting to test your Render-deployed subgraph
 
 If you want to verify in the Render Postgres database that your subgraph exists, follow these steps:
-1) Visit the Postgres service in Render and click on Shell in the sidebar
-2) To query the shell we need to enter as a user first. Enter the following in the shell, replacing POSTGRES_USER with the POSTGRES_USER variable in the Render .env:
+
+1. Visit the Postgres service in Render and click on Shell in the sidebar
+2. To query the shell we need to enter as a user first. Enter the following in the shell, replacing POSTGRES_USER with the POSTGRES_USER variable in the Render .env:
 
 ```bash
 psql -U POSTGRES_USER
 ```
 
-3) To see what databases are available in our Postgres database we can use this query:
+3. To see what databases are available in our Postgres database we can use this query:
 
 ```bash
 \l
 ```
 
-4) To enter the database with our subgraphs you can use the following query, replacing POSTGRES_DB with the POSTGRES_DB variable in the Render .env:
+4. To enter the database with our subgraphs you can use the following query, replacing POSTGRES_DB with the POSTGRES_DB variable in the Render .env:
 
 ```bash
 \c POSTGRES_DB
 ```
 
-5) You can see all the available tables in POSTGRES_DB with the following command:
+5. You can see all the available tables in POSTGRES_DB with the following command:
 
 ```bash
 \dt
 ```
 
-6) Finally, to see the names of the subgraphs deployed to Render we can use the following query (note that capitalization matters):
+6. Finally, to see the names of the subgraphs deployed to Render we can use the following query (note that capitalization matters):
 
 ```bash
 SELECT * FROM subgraphs.subgraph;
 ```
 
-7) If no data is returned from the above query it's because there are no deployed subgraphs in our Render deployment.
-To be absolutely sure there are no deployed subgraphs we can use the following query:
+7. If no data is returned from the above query it's because there are no deployed subgraphs in our Render deployment.
+   To be absolutely sure there are no deployed subgraphs we can use the following query:
 
 ```bash
 SELECT COUNT(*) FROM subgraphs.subgraph;
@@ -257,15 +259,15 @@ SELECT COUNT(*) FROM subgraphs.subgraph;
 
 If there are no deployed subgraphs then the count should be 0
 
-## Render Troubleshooting 
+## Render Troubleshooting
 
 If an error occurs when deploying to render please check the following:
 
-1) Verify that the username and password you're using for basic authentication are correct by checking the current
-.env values in the nginx Render deployment 
-2) Verify that the logs in each of the services (IPFS, graph node, DB) do not have errors and if they do then run a re-deploy
-for that service (and probably the graph node service itself since it depends on IPFS and the DB)
-3) Verify that the nginx.conf secret file in the graph node Render project is redirecting requests to the correct upstream servers 
+1. Verify that the username and password you're using for basic authentication are correct by checking the current
+   .env values in the nginx Render deployment
+2. Verify that the logs in each of the services (IPFS, graph node, DB) do not have errors and if they do then run a re-deploy
+   for that service (and probably the graph node service itself since it depends on IPFS and the DB)
+3. Verify that the nginx.conf secret file in the graph node Render project is redirecting requests to the correct upstream servers
 
 ## License 📝
 

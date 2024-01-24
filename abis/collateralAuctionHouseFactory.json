@@ -1,10 +1,9 @@
 [
   {
     "inputs": [
-      { "internalType": "address", "name": "_safeEngine", "type": "address" },
       {
         "internalType": "address",
-        "name": "_oracleRelayer",
+        "name": "_safeEngine",
         "type": "address"
       },
       {
@@ -13,49 +12,64 @@
         "type": "address"
       },
       {
-        "components": [
-          {
-            "internalType": "uint256",
-            "name": "minSystemCoinDeviation",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "lowerSystemCoinDeviation",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "upperSystemCoinDeviation",
-            "type": "uint256"
-          }
-        ],
-        "internalType": "struct ICollateralAuctionHouse.CollateralAuctionHouseSystemCoinParams",
-        "name": "_cahParams",
-        "type": "tuple"
+        "internalType": "address",
+        "name": "_oracleRelayer",
+        "type": "address"
       }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
   },
-  { "inputs": [], "name": "AlreadyAuthorized", "type": "error" },
-  { "inputs": [], "name": "CAHFactory_CAHExists", "type": "error" },
-  { "inputs": [], "name": "ContractIsDisabled", "type": "error" },
-  { "inputs": [], "name": "ContractIsEnabled", "type": "error" },
-  { "inputs": [], "name": "NonDisableable", "type": "error" },
-  { "inputs": [], "name": "NotAuthorized", "type": "error" },
   {
-    "inputs": [
-      { "internalType": "uint256", "name": "_x", "type": "uint256" },
-      { "internalType": "uint256", "name": "_y", "type": "uint256" }
-    ],
-    "name": "NotLesserOrEqualThan",
+    "inputs": [],
+    "name": "AlreadyAuthorized",
     "type": "error"
   },
-  { "inputs": [], "name": "NullAddress", "type": "error" },
-  { "inputs": [], "name": "Unauthorized", "type": "error" },
-  { "inputs": [], "name": "UnrecognizedCType", "type": "error" },
-  { "inputs": [], "name": "UnrecognizedParam", "type": "error" },
+  {
+    "inputs": [],
+    "name": "CAHFactory_CAHExists",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ContractIsDisabled",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ContractIsEnabled",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NonDisableable",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotAuthorized",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NullAddress",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Unauthorized",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnrecognizedCType",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnrecognizedParam",
+    "type": "error"
+  },
   {
     "anonymous": false,
     "inputs": [
@@ -134,49 +148,32 @@
   },
   {
     "inputs": [
-      { "internalType": "bytes32", "name": "_cType", "type": "bytes32" }
+      {
+        "internalType": "bytes32",
+        "name": "_cType",
+        "type": "bytes32"
+      }
     ],
     "name": "_cParams",
     "outputs": [
-      { "internalType": "uint256", "name": "_minimumBid", "type": "uint256" },
-      { "internalType": "uint256", "name": "_minDiscount", "type": "uint256" },
-      { "internalType": "uint256", "name": "_maxDiscount", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "_minimumBid",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_minDiscount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_maxDiscount",
+        "type": "uint256"
+      },
       {
         "internalType": "uint256",
         "name": "_perSecondDiscountUpdateRate",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_lowerCollateralDeviation",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_upperCollateralDeviation",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "_params",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "minSystemCoinDeviation",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "lowerSystemCoinDeviation",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "upperSystemCoinDeviation",
         "type": "uint256"
       }
     ],
@@ -185,7 +182,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
     ],
     "name": "addAuthorization",
     "outputs": [],
@@ -194,11 +195,19 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
     ],
     "name": "authorizedAccounts",
     "outputs": [
-      { "internalType": "bool", "name": "_authorized", "type": "bool" }
+      {
+        "internalType": "bool",
+        "name": "_authorized",
+        "type": "bool"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
@@ -207,14 +216,22 @@
     "inputs": [],
     "name": "authorizedAccounts",
     "outputs": [
-      { "internalType": "address[]", "name": "_accounts", "type": "address[]" }
+      {
+        "internalType": "address[]",
+        "name": "_accounts",
+        "type": "address[]"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "bytes32", "name": "_cType", "type": "bytes32" }
+      {
+        "internalType": "bytes32",
+        "name": "_cType",
+        "type": "bytes32"
+      }
     ],
     "name": "cParams",
     "outputs": [
@@ -239,20 +256,10 @@
             "internalType": "uint256",
             "name": "perSecondDiscountUpdateRate",
             "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "lowerCollateralDeviation",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "upperCollateralDeviation",
-            "type": "uint256"
           }
         ],
         "internalType": "struct ICollateralAuctionHouse.CollateralAuctionHouseParams",
-        "name": "_cahCParams",
+        "name": "_cahParams",
         "type": "tuple"
       }
     ],
@@ -260,9 +267,21 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_cType",
+        "type": "bytes32"
+      }
+    ],
     "name": "collateralAuctionHouses",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -295,13 +314,23 @@
   {
     "inputs": [],
     "name": "contractEnabled",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "bytes32", "name": "_cType", "type": "bytes32" },
+      {
+        "internalType": "bytes32",
+        "name": "_cType",
+        "type": "bytes32"
+      },
       {
         "components": [
           {
@@ -323,20 +352,10 @@
             "internalType": "uint256",
             "name": "perSecondDiscountUpdateRate",
             "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "lowerCollateralDeviation",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "upperCollateralDeviation",
-            "type": "uint256"
           }
         ],
         "internalType": "struct ICollateralAuctionHouse.CollateralAuctionHouseParams",
-        "name": "_cahCParams",
+        "name": "_cahParams",
         "type": "tuple"
       }
     ],
@@ -361,15 +380,33 @@
   {
     "inputs": [],
     "name": "liquidationEngine",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "bytes32", "name": "_cType", "type": "bytes32" },
-      { "internalType": "bytes32", "name": "_param", "type": "bytes32" },
-      { "internalType": "bytes", "name": "_data", "type": "bytes" }
+      {
+        "internalType": "bytes32",
+        "name": "_cType",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_param",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+      }
     ],
     "name": "modifyParameters",
     "outputs": [],
@@ -378,8 +415,16 @@
   },
   {
     "inputs": [
-      { "internalType": "bytes32", "name": "_param", "type": "bytes32" },
-      { "internalType": "bytes", "name": "_data", "type": "bytes" }
+      {
+        "internalType": "bytes32",
+        "name": "_param",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+      }
     ],
     "name": "modifyParameters",
     "outputs": [],
@@ -389,35 +434,11 @@
   {
     "inputs": [],
     "name": "oracleRelayer",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "params",
     "outputs": [
       {
-        "components": [
-          {
-            "internalType": "uint256",
-            "name": "minSystemCoinDeviation",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "lowerSystemCoinDeviation",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "upperSystemCoinDeviation",
-            "type": "uint256"
-          }
-        ],
-        "internalType": "struct ICollateralAuctionHouse.CollateralAuctionHouseSystemCoinParams",
-        "name": "_cahParams",
-        "type": "tuple"
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -425,7 +446,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
     ],
     "name": "removeAuthorization",
     "outputs": [],
@@ -435,7 +460,13 @@
   {
     "inputs": [],
     "name": "safeEngine",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   }

@@ -13,7 +13,7 @@
 
 Graph Protocol subgraph for the Open Dollar protocol
 
-## Usage
+# Usage
 
 Install the necessary dependencies:
 
@@ -27,7 +27,7 @@ We have a couple options when deploying our subgraph
 - Local Graph node (used with Anvil)
 - Our team's private graph node
 
-### Initial Setup
+## Initial Setup
 
 Run these commands prior to deployment
 
@@ -43,7 +43,7 @@ yarn codegen
 yarn build
 ```
 
-### Deploy to Subgraph Studio
+## Deploy to Subgraph Studio
 
 1. Create a new subgraph on the hosted service, [Subgraph Studio](https://thegraph.com/studio/)
 
@@ -61,7 +61,7 @@ graph auth --studio SUBGRAPH_SECRET_HERE
 yarn deploy
 ```
 
-### Local Graph node w/ Anvil
+## Local Graph node w/ Anvil
 
 1. Get Anvil running using the instructions in our contracts repo:
 
@@ -101,7 +101,7 @@ yarn deploy-local
 
 https://localhost:8000/subgraphs/name/open-dollar---testnet/graphql
 
-### Local Graph node w/ any network
+## Local Graph node w/ any network
 
 1. Add your RPC endpoint to a ETHEREUM_RPC_URL variable in your .env file. Then, replace the `network` property in `docker-compose.yml` with the following (we'll use Arbitrum-Sepolia as an example):
 
@@ -136,7 +136,7 @@ yarn deploy-local
 
 6. You can now query the subgraph at http://localhost:8000/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql. It may take a few minutes for the subgraph to sync before you can get results from the query.
 
-### Team's private Render Graph node
+## Team's private Render Graph node
 
 1. Add your RPC endpoint to a ETHEREUM_RPC_URL variable in your .env file. Then, replace the `network` property in `docker-compose.yml` with the following (we'll use Arbitrum-Sepolia as an example):
 
@@ -171,14 +171,32 @@ yarn create-render
 yarn deploy-render
 ```
 
-## Querying Render Subgraphs
+# Private Render Subgraphs
 
-After deploying your subgraph to Render, you can now query the subgraph at https://${GRAPH_NODE_PLAYGROUND_BASE_URL}/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql. It may take a few minutes for the subgraph to sync before you can get results from the query.
+Below you'll find documentation related to our private instace of the subhgraph.
 
-_Important_: note that you cannot access the playground through the NGINX endpoint, you must use the base URL of the graph node service itself
+### Querying
 
-To use the subgraph in the SDK use the URL https://${GRAPH_NODE_PLAYGROUND_BASE_URL}/subgraphs/name/NAME_OF_YOUR_SUBGRAPH. Make sure to rebuild the SDK and point your
+After deploying your subgraph to Render, you can now query the subgraph at
+
+```
+https://${GRAPH_NODE_PLAYGROUND_BASE_URL}/subgraphs/name/NAME_OF_YOUR_SUBGRAPH/graphql.
+```
+
+It may take a few minutes for the subgraph to sync before you can get results from the query.
+
+> _Important_: note that you cannot access the playground through the NGINX endpoint, you must use the base URL of the graph node service itself
+
+To use the subgraph in the SDK use the URL:
+
+```
+https://${GRAPH_NODE_PLAYGROUND_BASE_URL}/subgraphs/name/NAME_OF_YOUR_SUBGRAPH
+```
+
+Make sure to rebuild the SDK and point your
 app to use your local build of the SDK before attempting to test your Render-deployed subgraph
+
+#### Database Inspection
 
 If you want to verify in the Render Postgres database that your subgraph exists, follow these steps:
 

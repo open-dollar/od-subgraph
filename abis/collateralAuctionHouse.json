@@ -8,12 +8,12 @@
       },
       {
         "internalType": "address",
-        "name": "_liquidationEngine",
+        "name": "__liquidationEngine",
         "type": "address"
       },
       {
         "internalType": "address",
-        "name": "_oracleRelayer",
+        "name": "__oracleRelayer",
         "type": "address"
       },
       {
@@ -104,11 +104,6 @@
   },
   {
     "inputs": [],
-    "name": "CallerNotFactory",
-    "type": "error"
-  },
-  {
-    "inputs": [],
     "name": "ContractIsDisabled",
     "type": "error"
   },
@@ -125,11 +120,6 @@
   {
     "inputs": [],
     "name": "NotAuthorized",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "NotFactoryDeployment",
     "type": "error"
   },
   {
@@ -640,19 +630,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "factory",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -706,7 +683,7 @@
     "outputs": [
       {
         "internalType": "contract ILiquidationEngine",
-        "name": "_liquidationEngine",
+        "name": "__liquidationEngine",
         "type": "address"
       }
     ],
@@ -760,7 +737,7 @@
     "outputs": [
       {
         "internalType": "contract IOracleRelayer",
-        "name": "_oracleRelayer",
+        "name": "__oracleRelayer",
         "type": "address"
       }
     ],

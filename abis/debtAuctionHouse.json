@@ -1,7 +1,11 @@
 [
   {
     "inputs": [
-      { "internalType": "address", "name": "_safeEngine", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "_safeEngine",
+        "type": "address"
+      },
       {
         "internalType": "address",
         "name": "_protocolToken",
@@ -38,24 +42,96 @@
     "stateMutability": "nonpayable",
     "type": "constructor"
   },
-  { "inputs": [], "name": "AlreadyAuthorized", "type": "error" },
-  { "inputs": [], "name": "ContractIsDisabled", "type": "error" },
-  { "inputs": [], "name": "ContractIsEnabled", "type": "error" },
-  { "inputs": [], "name": "DAH_AmountBoughtNotLower", "type": "error" },
-  { "inputs": [], "name": "DAH_AuctionAlreadyExpired", "type": "error" },
-  { "inputs": [], "name": "DAH_AuctionNeverStarted", "type": "error" },
-  { "inputs": [], "name": "DAH_AuctionNotFinished", "type": "error" },
-  { "inputs": [], "name": "DAH_BidAlreadyExpired", "type": "error" },
-  { "inputs": [], "name": "DAH_BidAlreadyPlaced", "type": "error" },
-  { "inputs": [], "name": "DAH_HighBidderNotSet", "type": "error" },
-  { "inputs": [], "name": "DAH_InsufficientDecrease", "type": "error" },
-  { "inputs": [], "name": "DAH_NotMatchingBid", "type": "error" },
-  { "inputs": [], "name": "NonDisableable", "type": "error" },
-  { "inputs": [], "name": "NotAuthorized", "type": "error" },
-  { "inputs": [], "name": "NullAddress", "type": "error" },
-  { "inputs": [], "name": "Unauthorized", "type": "error" },
-  { "inputs": [], "name": "UnrecognizedCType", "type": "error" },
-  { "inputs": [], "name": "UnrecognizedParam", "type": "error" },
+  {
+    "inputs": [],
+    "name": "AlreadyAuthorized",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ContractIsDisabled",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ContractIsEnabled",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DAH_AmountBoughtNotLower",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DAH_AuctionAlreadyExpired",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DAH_AuctionNeverStarted",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DAH_AuctionNotFinished",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DAH_BidAlreadyExpired",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DAH_BidAlreadyPlaced",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DAH_HighBidderNotSet",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DAH_InsufficientDecrease",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DAH_NotMatchingBid",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NonDisableable",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotAuthorized",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NullAddress",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Unauthorized",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnrecognizedCType",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnrecognizedParam",
+    "type": "error"
+  },
   {
     "anonymous": false,
     "inputs": [
@@ -222,6 +298,12 @@
         "type": "uint256"
       },
       {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_auctioneer",
+        "type": "address"
+      },
+      {
         "indexed": false,
         "internalType": "uint256",
         "name": "_blockTimestamp",
@@ -283,18 +365,46 @@
   {
     "inputs": [],
     "name": "AUCTION_HOUSE_TYPE",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_auctionId",
+        "type": "uint256"
+      }
+    ],
     "name": "_auctions",
     "outputs": [
-      { "internalType": "uint256", "name": "bidAmount", "type": "uint256" },
-      { "internalType": "uint256", "name": "amountToSell", "type": "uint256" },
-      { "internalType": "address", "name": "highBidder", "type": "address" },
-      { "internalType": "uint256", "name": "bidExpiry", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "bidAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountToSell",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "highBidder",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "bidExpiry",
+        "type": "uint256"
+      },
       {
         "internalType": "uint256",
         "name": "auctionDeadline",
@@ -308,13 +418,21 @@
     "inputs": [],
     "name": "_params",
     "outputs": [
-      { "internalType": "uint256", "name": "bidDecrease", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "bidDecrease",
+        "type": "uint256"
+      },
       {
         "internalType": "uint256",
         "name": "amountSoldIncrease",
         "type": "uint256"
       },
-      { "internalType": "uint256", "name": "bidDuration", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "bidDuration",
+        "type": "uint256"
+      },
       {
         "internalType": "uint256",
         "name": "totalAuctionLength",
@@ -327,20 +445,36 @@
   {
     "inputs": [],
     "name": "accountingEngine",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "activeDebtAuctions",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
     ],
     "name": "addAuthorization",
     "outputs": [],
@@ -348,12 +482,22 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
+    ],
     "name": "auctions",
     "outputs": [
       {
         "components": [
-          { "internalType": "uint256", "name": "bidAmount", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "bidAmount",
+            "type": "uint256"
+          },
           {
             "internalType": "uint256",
             "name": "amountToSell",
@@ -364,7 +508,11 @@
             "name": "highBidder",
             "type": "address"
           },
-          { "internalType": "uint256", "name": "bidExpiry", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "bidExpiry",
+            "type": "uint256"
+          },
           {
             "internalType": "uint256",
             "name": "auctionDeadline",
@@ -382,17 +530,31 @@
   {
     "inputs": [],
     "name": "auctionsStarted",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
     ],
     "name": "authorizedAccounts",
     "outputs": [
-      { "internalType": "bool", "name": "_authorized", "type": "bool" }
+      {
+        "internalType": "bool",
+        "name": "_authorized",
+        "type": "bool"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
@@ -401,7 +563,11 @@
     "inputs": [],
     "name": "authorizedAccounts",
     "outputs": [
-      { "internalType": "address[]", "name": "_accounts", "type": "address[]" }
+      {
+        "internalType": "address[]",
+        "name": "_accounts",
+        "type": "address[]"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
@@ -409,15 +575,33 @@
   {
     "inputs": [],
     "name": "contractEnabled",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_id", "type": "uint256" },
-      { "internalType": "uint256", "name": "_amountToBuy", "type": "uint256" },
-      { "internalType": "uint256", "name": "_bid", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountToBuy",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_bid",
+        "type": "uint256"
+      }
     ],
     "name": "decreaseSoldAmount",
     "outputs": [],
@@ -433,9 +617,21 @@
   },
   {
     "inputs": [
-      { "internalType": "bytes32", "name": "_cType", "type": "bytes32" },
-      { "internalType": "bytes32", "name": "_param", "type": "bytes32" },
-      { "internalType": "bytes", "name": "_data", "type": "bytes" }
+      {
+        "internalType": "bytes32",
+        "name": "_cType",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_param",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+      }
     ],
     "name": "modifyParameters",
     "outputs": [],
@@ -444,8 +640,16 @@
   },
   {
     "inputs": [
-      { "internalType": "bytes32", "name": "_param", "type": "bytes32" },
-      { "internalType": "bytes", "name": "_data", "type": "bytes" }
+      {
+        "internalType": "bytes32",
+        "name": "_param",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+      }
     ],
     "name": "modifyParameters",
     "outputs": [],
@@ -502,7 +706,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
     ],
     "name": "removeAuthorization",
     "outputs": [],
@@ -510,7 +718,13 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
+    ],
     "name": "restartAuction",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -520,13 +734,23 @@
     "inputs": [],
     "name": "safeEngine",
     "outputs": [
-      { "internalType": "contract ISAFEEngine", "name": "", "type": "address" }
+      {
+        "internalType": "contract ISAFEEngine",
+        "name": "",
+        "type": "address"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
+    ],
     "name": "settleAuction",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -539,18 +763,36 @@
         "name": "_incomeReceiver",
         "type": "address"
       },
-      { "internalType": "uint256", "name": "_amountToSell", "type": "uint256" },
-      { "internalType": "uint256", "name": "_initialBid", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_amountToSell",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_initialBid",
+        "type": "uint256"
+      }
     ],
     "name": "startAuction",
     "outputs": [
-      { "internalType": "uint256", "name": "_id", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
     ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
+    ],
     "name": "terminateAuctionPrematurely",
     "outputs": [],
     "stateMutability": "nonpayable",

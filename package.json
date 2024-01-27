@@ -1,6 +1,6 @@
 {
   "name": "od-subgraph",
-  "version": "v1.5.9-rc.2",
+  "version": "v1.6.0-rc.1",
   "license": "MIT",
   "scripts": {
     "codegen": "graph codegen",

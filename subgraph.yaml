@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: surplusAuctionHouse
-    network: arbitrum-sepolia
+    network: arbitrum-one
     source:
       abi: surplusAuctionHouse
-      address: "0xB9fCb46313A76718b20b07C03b76cc606841ea9f"
-      startBlock: 32314613
+      address: "0xA18aFB1953648ec7465d536287a015C237927369"
+      startBlock: 203510232
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -48,11 +48,11 @@ dataSources:
       file: ./src/surplus-auction-house.ts
   - kind: ethereum
     name: debtAuctionHouse
-    network: arbitrum-sepolia
+    network: arbitrum-one
     source:
       abi: debtAuctionHouse
-      address: "0x72C97B46036Eea6c1Bf019a945E776e9e9021a09"
-      startBlock: 32314613
+      address: "0x5A021f2063bc2D26fd24a632e29587Afe14D30e5"
+      startBlock: 203510232
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -92,11 +92,11 @@ dataSources:
       file: ./src/debt-auction-house.ts
   - kind: ethereum
     name: collateralAuctionHouseFactory
-    network: arbitrum-sepolia
+    network: arbitrum-one
     source:
-      address: "0x5C95C7aebB8A84869EA0E8528C35BCb0725A3024"
+      address: "0x5dc1E86361faC018f24Ae0D1E5eB01D70AB32A82"
       abi: collateralAuctionHouseFactory
-      startBlock: 32314613
+      startBlock: 203510232
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -124,11 +124,11 @@ dataSources:
       file: ./src/collateral-auction-house-factory.ts
   - kind: ethereum
     name: vault721
-    network: arbitrum-sepolia
+    network: arbitrum-one
     source:
-      address: "0x05AC7e3ac152012B980407dEff2655c209667E4c"
+      address: "0x0005AFE00fF7E7FF83667bFe4F2996720BAf0B36"
       abi: vault721
-      startBlock: 32314613
+      startBlock: 203510232
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -154,7 +154,7 @@ dataSources:
 templates:
   - kind: ethereum
     name: collateralAuctionHouse
-    network: arbitrum-sepolia
+    network: arbitrum-one
     source:
       abi: collateralAuctionHouse
     mapping:

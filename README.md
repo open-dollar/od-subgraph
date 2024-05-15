@@ -246,5 +246,5 @@ If an error occurs when deploying to render please check the following:
 
 ## License
 
-Copyright © 2023 Nifty Chess, Inc.<br />
+Copyright © 2024 OpenFi Foundation, Inc.<br />
 This project is MIT licensed.

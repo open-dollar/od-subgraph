@@ -10,6 +10,7 @@ import {
   CreateProxy,
   Transfer,
 } from "../generated/schema";
+import { getOrCreateVault } from "./utils";
 
 export function handleApproval(event: ApprovalEvent): void {
   let entity = new Approval(
@@ -68,4 +69,9 @@ export function handleTransfer(event: TransferEvent): void {
   entity.transactionHash = event.transaction.hash;
 
   entity.save();
+
+  let vault = getOrCreateVault(event.params.tokenId.toString());
+  vault.owner = event.params.to;
+
+  vault.save();
 }

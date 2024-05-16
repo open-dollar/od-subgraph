@@ -326,9 +326,13 @@ type Transfer @entity(immutable: true) {
 
 type Vault @entity {
   id: String!
-  currentOwner: String!
+  owner: Bytes! # address
+  collateralType: String!
+  collateral: BigInt!
+  debt: BigInt!
   transfers: [Transfer!]! @derivedFrom(field: "vault")
   approvals: [Approval!]! @derivedFrom(field: "vault")
+  modifications: [ModifySAFECollateralization!]! @derivedFrom(field: "vault")
 }
 
 type AllowSAFE @entity(immutable: true) {

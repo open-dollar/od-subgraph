@@ -22,6 +22,7 @@ import {
   TransferInternalCoins,
   TransferSAFEOwnership,
 } from "../generated/schema";
+import { getOrCreateVault } from "./utils";
 
 export function handleAllowSAFE(event: AllowSAFEEvent): void {
   let entity = new AllowSAFE(
@@ -55,6 +56,14 @@ export function handleModifySAFECollateralization(
   entity.transactionHash = event.transaction.hash;
 
   entity.save();
+
+  let vault = getOrCreateVault(event.params._safe.toString());
+
+  // Update the Vault entity with the current debt and collateral
+  vault.collateral = vault.collateral.plus(event.params._deltaCollateral);
+  vault.debt = vault.debt.plus(event.params._deltaDebt);
+
+  vault.save();
 }
 
 export function handleMoveSAFE(event: MoveSAFEEvent): void {
@@ -85,6 +94,12 @@ export function handleOpenSAFE(event: OpenSAFEEvent): void {
   entity.transactionHash = event.transaction.hash;
 
   entity.save();
+
+  // Create a new Vault entity
+  let vault = getOrCreateVault(event.params._safe.toString());
+  vault.owner = event.transaction.from;
+
+  vault.save();
 }
 
 export function handleProtectSAFE(event: ProtectSAFEEvent): void {

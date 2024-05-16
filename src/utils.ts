@@ -2,21 +2,9 @@ import { Vault } from "../generated/schema";
 import { BigInt, Address, Bytes } from "@graphprotocol/graph-ts";
 import { odSafeManager } from "../generated/odSafeManager/odSafeManager";
 
-const odsafeManagerAddress = "0x7f7fA6e3f2E0b0f4b4bDf7f9f2fBb2f3f3f3f3f3";
-export const getOrCreateVault = (vaultId: string): Vault => {
-  let vault = Vault.load(vaultId);
+const odsafeManagerAddress = "0x8646CBd915eAAD1a4E2Ba5e2b67Acec4957d5f1a";
 
-  if (vault == null) {
-    vault = new Vault(vaultId);
-
-    vault.collateral = BigInt.fromI32(0);
-    vault.debt = BigInt.fromI32(0);
-  }
-
-  return vault;
-};
-
-const parseCollateralType = (collateralType: string): Bytes => {
+const parseCollateralType = (collateralType: string): string => {
   // Substitute for ethers.parseBytes32String()
   const collateralTypeMap = new Map<string, string>();
   collateralTypeMap.set(
@@ -38,17 +26,17 @@ const parseCollateralType = (collateralType: string): Bytes => {
     ? collateralTypeMap.get(collateralType)
     : collateralType;
 
-  return Bytes.fromHexString(collateralTypeString);
+  return collateralTypeString;
 };
 
 class SAFEData {
   nonce: BigInt;
   owner: Address;
   safeHandler: Address;
-  collateralType: Bytes;
+  collateralType: string;
 }
 
-export const getVaultDetails = (vaultId: string): SAFEData => {
+const getVaultDetails = (vaultId: string): SAFEData => {
   let manager = odSafeManager.bind(Address.fromString(odsafeManagerAddress));
   let safeData = manager.safeData(BigInt.fromI64(<i64>parseInt(vaultId)));
   return {
@@ -57,4 +45,20 @@ export const getVaultDetails = (vaultId: string): SAFEData => {
     safeHandler: safeData.safeHandler,
     collateralType: parseCollateralType(safeData.collateralType.toHexString()),
   };
+};
+
+export const getOrCreateVault = (vaultId: string): Vault => {
+  let vault = Vault.load(vaultId);
+
+  if (vault == null) {
+    vault = new Vault(vaultId);
+
+    let vaultDetails = getVaultDetails(vaultId);
+    vault.collateralType = vaultDetails.collateralType;
+
+    vault.collateral = BigInt.fromI32(0);
+    vault.debt = BigInt.fromI32(0);
+  }
+
+  return vault;
 };

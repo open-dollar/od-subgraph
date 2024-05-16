@@ -25,7 +25,7 @@ export function handleAddAuthorization(event: AddAuthorizationEvent): void {
   let entity = new AddAuthorization(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  entity._account = event.params._account;
+  entity.account = event.params._account;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -38,12 +38,12 @@ export function handleDecreaseSoldAmount(event: DecreaseSoldAmountEvent): void {
   let entity = new DebtAuctionHouseDecreaseSoldAmount(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  entity._auctionId = event.params._id;
-  entity._bidder = event.params._bidder;
+  entity.auctionId = event.params._id;
+  entity.bidder = event.params._bidder;
 
-  entity._raisedAmount = event.params._raisedAmount;
-  entity._soldAmount = event.params._soldAmount;
-  entity._bidExpiry = event.params._bidExpiry;
+  entity.raisedAmount = event.params._raisedAmount;
+  entity.soldAmount = event.params._soldAmount;
+  entity.bidExpiry = event.params._bidExpiry;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -68,9 +68,9 @@ export function handleModifyParameters(event: ModifyParametersEvent): void {
   let entity = new ModifyParameters(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  entity._param = event.params._param;
-  entity._cType = event.params._cType;
-  entity._data = event.params._data;
+  entity.param = event.params._param;
+  entity.cType = event.params._cType;
+  entity.data = event.params._data;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -85,7 +85,7 @@ export function handleRemoveAuthorization(
   let entity = new RemoveAuthorization(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  entity._account = event.params._account;
+  entity.account = event.params._account;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -98,9 +98,9 @@ export function handleRestartAuction(event: RestartAuctionEvent): void {
   let entity = new DebtAuctionHouseRestartAuction(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  entity._auctionId = event.params._id;
+  entity.auctionId = event.params._id;
 
-  entity._auctionDeadline = event.params._auctionDeadline;
+  entity.auctionDeadline = event.params._auctionDeadline;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -113,10 +113,10 @@ export function handleSettleAuction(event: SettleAuctionEvent): void {
   let entity = new DebtAuctionHouseSettleAuction(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  entity._auctionId = event.params._id;
+  entity.auctionId = event.params._id;
 
-  entity._highBidder = event.params._highBidder;
-  entity._raisedAmount = event.params._raisedAmount;
+  entity.highBidder = event.params._highBidder;
+  entity.raisedAmount = event.params._raisedAmount;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -129,10 +129,10 @@ export function handleStartAuction(event: StartAuctionEvent): void {
   let entity = new DebtAuctionHouseStartAuction(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  entity._auctionId = event.params._id;
-  entity._amountToSell = event.params._amountToSell;
-  entity._amountToRaise = event.params._amountToRaise;
-  entity._auctionDeadline = event.params._auctionDeadline;
+  entity.auctionId = event.params._id;
+  entity.amountToSell = event.params._amountToSell;
+  entity.amountToRaise = event.params._amountToRaise;
+  entity.auctionDeadline = event.params._auctionDeadline;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -147,10 +147,10 @@ export function handleTerminateAuctionPrematurely(
   let entity = new DebtAuctionHouseTerminateAuctionPrematurely(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  entity._auctionId = event.params._id;
+  entity.auctionId = event.params._id;
 
-  entity._highBidder = event.params._highBidder;
-  entity._raisedAmount = event.params._raisedAmount;
+  entity.highBidder = event.params._highBidder;
+  entity.raisedAmount = event.params._raisedAmount;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;

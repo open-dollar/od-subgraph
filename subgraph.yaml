@@ -152,6 +152,53 @@ dataSources:
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
       file: ./src/vault-721.ts
+  - kind: ethereum
+    name: odSafeManager
+    network: arbitrum-one
+    source:
+      address: "0x8646CBd915eAAD1a4E2Ba5e2b67Acec4957d5f1a"
+      abi: odSafeManager
+      startBlock: 204451248
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AllowSAFE
+        - ModifySAFECollateralization
+        - MoveSAFE
+        - OpenSAFE
+        - ProtectSAFE
+        - QuitSystem
+        - TransferCollateral
+        - TransferCollateral1
+        - TransferInternalCoins
+        - TransferSAFEOwnership
+      abis:
+        - name: odSafeManager
+          file: ./abis/odSafeManager.json
+      eventHandlers:
+        - event: AllowSAFE(indexed address,indexed uint256,address,bool)
+          handler: handleAllowSAFE
+        - event: ModifySAFECollateralization(indexed address,indexed uint256,int256,int256)
+          handler: handleModifySAFECollateralization
+        - event: MoveSAFE(indexed address,indexed uint256,indexed uint256)
+          handler: handleMoveSAFE
+        - event: OpenSAFE(indexed address,indexed address,indexed uint256)
+          handler: handleOpenSAFE
+        - event: ProtectSAFE(indexed address,indexed uint256,address,address)
+          handler: handleProtectSAFE
+        - event: QuitSystem(indexed address,indexed uint256,address)
+          handler: handleQuitSystem
+        - event: TransferCollateral(indexed address,indexed uint256,address,uint256)
+          handler: handleTransferCollateral
+        - event: TransferCollateral(indexed address,bytes32,indexed uint256,address,uint256)
+          handler: handleTransferCollateral1
+        - event: TransferInternalCoins(indexed address,indexed uint256,address,uint256)
+          handler: handleTransferInternalCoins
+        - event: TransferSAFEOwnership(indexed address,indexed uint256,address)
+          handler: handleTransferSAFEOwnership
+      file: ./src/od-safe-manager.ts
 templates:
   - kind: ethereum
     name: collateralAuctionHouse

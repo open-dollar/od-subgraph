@@ -138,6 +138,7 @@ dataSources:
         - ApprovalForAll
         - CreateProxy
         - Transfer
+        - Vault
       abis:
         - name: vault721
           file: ./abis/vault721.json

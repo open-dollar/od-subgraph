@@ -5,13 +5,13 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ open-dollar---testnet",
-    "create-local": "graph create --node http://localhost:8020/ open-dollar---testnet",
-    "remove-local": "graph remove --node http://localhost:8020/ open-dollar---testnet",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 open-dollar---testnet",
-    "create-render": "source .env && graph create open-dollar---testnet --node https://$NGINX_USERNAME:$NGINX_PASSWORD@$NGINX_GRAPH_NODE_RPC_URL",
-    "remove-render": "source .env && graph remove open-dollar---testnet --node https://$NGINX_USERNAME:$NGINX_PASSWORD@$NGINX_GRAPH_NODE_RPC_URL",
-    "deploy-render": "source .env && graph deploy open-dollar---testnet --node https://$NGINX_USERNAME:$NGINX_PASSWORD@$NGINX_GRAPH_NODE_RPC_URL --ipfs $IPFS_URL",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ open-dollar---sepolia",
+    "create-local": "graph create --node http://localhost:8020/ --ipfs http://localhost:5001 open-dollarsepolia",
+    "remove-local": "graph remove --node http://localhost:8020/ open-dollar---sepolia",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 open-dollar---sepolia",
+    "create-render": "source .env && graph create open-dollar---sepolia --node https://$NGINX_USERNAME:$NGINX_PASSWORD@$NGINX_GRAPH_NODE_RPC_URL",
+    "remove-render": "source .env && graph remove open-dollar---sepolia --node https://$NGINX_USERNAME:$NGINX_PASSWORD@$NGINX_GRAPH_NODE_RPC_URL",
+    "deploy-render": "source .env && graph deploy open-dollar---sepolia --node https://$NGINX_USERNAME:$NGINX_PASSWORD@$NGINX_GRAPH_NODE_RPC_URL --ipfs $IPFS_URL",
     "test": "graph test"
   },
   "dependencies": {

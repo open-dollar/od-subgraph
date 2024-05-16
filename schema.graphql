@@ -1,6 +1,6 @@
 type AddAuthorization @entity(immutable: true) {
   id: Bytes!
-  _account: Bytes! # address
+  account: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -8,8 +8,8 @@ type AddAuthorization @entity(immutable: true) {
 
 type DeployCollateralAuctionHouse @entity(immutable: true) {
   id: Bytes!
-  _cType: Bytes! # bytes32
-  _collateralAuctionHouse: Bytes! # address
+  cType: Bytes! # bytes32
+  collateralAuctionHouse: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -25,9 +25,9 @@ type DisableContract @entity(immutable: true) {
 
 type ModifyParameters @entity(immutable: true) {
   id: Bytes!
-  _param: Bytes! # bytes32
-  _cType: Bytes! # bytes32
-  _data: Bytes! # bytes
+  param: Bytes! # bytes32
+  cType: Bytes! # bytes32
+  data: Bytes! # bytes
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -35,7 +35,7 @@ type ModifyParameters @entity(immutable: true) {
 
 type RemoveAuthorization @entity(immutable: true) {
   id: Bytes!
-  _account: Bytes! # address
+  account: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -43,7 +43,7 @@ type RemoveAuthorization @entity(immutable: true) {
 
 type SurplusAuctionHouseAddAuthorization @entity(immutable: true) {
   id: Bytes!
-  _account: Bytes! # address
+  account: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -59,11 +59,11 @@ type SurplusAuctionHouseDisableContract @entity(immutable: true) {
 
 type SurplusAuctionHouseIncreaseBidSize @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _bidder: Bytes! # address
-  _raisedAmount: BigInt! # uint256
-  _soldAmount: BigInt! # uint256
-  _bidExpiry: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  bidder: Bytes! # address
+  raisedAmount: BigInt! # uint256
+  soldAmount: BigInt! # uint256
+  bidExpiry: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -71,9 +71,9 @@ type SurplusAuctionHouseIncreaseBidSize @entity(immutable: true) {
 
 type SurplusAuctionHouseModifyParameters @entity(immutable: true) {
   id: Bytes!
-  _param: Bytes! # bytes32
-  _cType: Bytes! # bytes32
-  _data: Bytes! # bytes
+  param: Bytes! # bytes32
+  cType: Bytes! # bytes32
+  data: Bytes! # bytes
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -81,7 +81,7 @@ type SurplusAuctionHouseModifyParameters @entity(immutable: true) {
 
 type SurplusAuctionHouseRemoveAuthorization @entity(immutable: true) {
   id: Bytes!
-  _account: Bytes! # address
+  account: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -89,8 +89,8 @@ type SurplusAuctionHouseRemoveAuthorization @entity(immutable: true) {
 
 type SurplusAuctionHouseRestartAuction @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _auctionDeadline: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  auctionDeadline: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -98,9 +98,9 @@ type SurplusAuctionHouseRestartAuction @entity(immutable: true) {
 
 type SurplusAuctionHouseSettleAuction @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _highBidder: Bytes! # address
-  _raisedAmount: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  highBidder: Bytes! # address
+  raisedAmount: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -108,10 +108,10 @@ type SurplusAuctionHouseSettleAuction @entity(immutable: true) {
 
 type SurplusAuctionHouseStartAuction @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _amountToSell: BigInt! # uint256
-  _amountToRaise: BigInt! # uint256
-  _auctionDeadline: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  amountToSell: BigInt! # uint256
+  amountToRaise: BigInt! # uint256
+  auctionDeadline: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -119,9 +119,9 @@ type SurplusAuctionHouseStartAuction @entity(immutable: true) {
 
 type SurplusAuctionHouseTerminateAuctionPrematurely @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _highBidder: Bytes! # address
-  _raisedAmount: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  highBidder: Bytes! # address
+  raisedAmount: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -129,7 +129,7 @@ type SurplusAuctionHouseTerminateAuctionPrematurely @entity(immutable: true) {
 
 type DebtAuctionHouseAddAuthorization @entity(immutable: true) {
   id: Bytes!
-  _account: Bytes! # address
+  account: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -137,11 +137,11 @@ type DebtAuctionHouseAddAuthorization @entity(immutable: true) {
 
 type DebtAuctionHouseDecreaseSoldAmount @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _bidder: Bytes! # address
-  _raisedAmount: BigInt! # uint256
-  _soldAmount: BigInt! # uint256
-  _bidExpiry: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  bidder: Bytes! # address
+  raisedAmount: BigInt! # uint256
+  soldAmount: BigInt! # uint256
+  bidExpiry: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -157,9 +157,9 @@ type DebtAuctionHouseDisableContract @entity(immutable: true) {
 
 type DebtAuctionHouseModifyParameters @entity(immutable: true) {
   id: Bytes!
-  _param: Bytes! # bytes32
-  _cType: Bytes! # bytes32
-  _data: Bytes! # bytes
+  param: Bytes! # bytes32
+  cType: Bytes! # bytes32
+  data: Bytes! # bytes
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -167,7 +167,7 @@ type DebtAuctionHouseModifyParameters @entity(immutable: true) {
 
 type DebtAuctionHouseRemoveAuthorization @entity(immutable: true) {
   id: Bytes!
-  _account: Bytes! # address
+  account: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -175,8 +175,8 @@ type DebtAuctionHouseRemoveAuthorization @entity(immutable: true) {
 
 type DebtAuctionHouseRestartAuction @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _auctionDeadline: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  auctionDeadline: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -184,9 +184,9 @@ type DebtAuctionHouseRestartAuction @entity(immutable: true) {
 
 type DebtAuctionHouseSettleAuction @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _highBidder: Bytes! # address
-  _raisedAmount: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  highBidder: Bytes! # address
+  raisedAmount: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -194,10 +194,10 @@ type DebtAuctionHouseSettleAuction @entity(immutable: true) {
 
 type DebtAuctionHouseStartAuction @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _amountToSell: BigInt! # uint256
-  _amountToRaise: BigInt! # uint256
-  _auctionDeadline: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  amountToSell: BigInt! # uint256
+  amountToRaise: BigInt! # uint256
+  auctionDeadline: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -205,9 +205,9 @@ type DebtAuctionHouseStartAuction @entity(immutable: true) {
 
 type DebtAuctionHouseTerminateAuctionPrematurely @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _highBidder: Bytes! # address
-  _raisedAmount: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  highBidder: Bytes! # address
+  raisedAmount: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -215,7 +215,7 @@ type DebtAuctionHouseTerminateAuctionPrematurely @entity(immutable: true) {
 
 type CollateralAuctionHouseAddAuthorization @entity(immutable: true) {
   id: Bytes!
-  _account: Bytes! # address
+  account: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -223,9 +223,9 @@ type CollateralAuctionHouseAddAuthorization @entity(immutable: true) {
 
 type collateralAuctionHouseModifyParameters @entity(immutable: true) {
   id: Bytes!
-  _param: Bytes! # bytes32
-  _cType: Bytes! # bytes32
-  _data: Bytes! # bytes
+  param: Bytes! # bytes32
+  cType: Bytes! # bytes32
+  data: Bytes! # bytes
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -233,7 +233,7 @@ type collateralAuctionHouseModifyParameters @entity(immutable: true) {
 
 type CollateralAuctionHouseRemoveAuthorization @entity(immutable: true) {
   id: Bytes!
-  _account: Bytes! # address
+  account: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -241,10 +241,10 @@ type CollateralAuctionHouseRemoveAuthorization @entity(immutable: true) {
 
 type CollateralAuctionHouseBuyCollateral @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _bidder: Bytes! # address
-  _raisedAmount: BigInt! # uint256
-  _soldAmount: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  bidder: Bytes! # address
+  raisedAmount: BigInt! # uint256
+  soldAmount: BigInt! # uint256
   address: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
@@ -253,10 +253,10 @@ type CollateralAuctionHouseBuyCollateral @entity(immutable: true) {
 
 type CollateralAuctionHouseStartAuction @entity(immutable: true) {
   id: Bytes!
-  _auctioneer: Bytes! # address
-  _auctionId: BigInt! # uint256
-  _amountToSell: BigInt! # uint256
-  _amountToRaise: BigInt! # uint256
+  auctioneer: Bytes! # address
+  auctionId: BigInt! # uint256
+  amountToSell: BigInt! # uint256
+  amountToRaise: BigInt! # uint256
   address: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
@@ -265,31 +265,31 @@ type CollateralAuctionHouseStartAuction @entity(immutable: true) {
 
 type CollateralAuctionHouseSettleAuction @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _leftoverReceiver: Bytes! # address
-  _leftoverCollateral: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  leftoverReceiver: Bytes! # address
+  leftoverCollateral: BigInt! # uint256
   address: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
 
-type CollateralAuctionHouseTerminateAuctionPrematurely
-  @entity(immutable: true) {
+type CollateralAuctionHouseTerminateAuctionPrematurely @entity(immutable: true) {
   id: Bytes!
-  _auctionId: BigInt! # uint256
-  _leftoverReceiver: Bytes! # address
-  _leftoverCollateral: BigInt! # uint256
+  auctionId: BigInt! # uint256
+  leftoverReceiver: Bytes! # address
+  leftoverCollateral: BigInt! # uint256
   address: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+
 type Approval @entity(immutable: true) {
   id: Bytes!
   owner: Bytes! # address
   approved: Bytes! # address
-  tokenId: BigInt! # uint256
+  vault: Vault! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -307,8 +307,8 @@ type ApprovalForAll @entity(immutable: true) {
 
 type CreateProxy @entity(immutable: true) {
   id: Bytes!
-  _user: Bytes! # address
-  _proxy: Bytes! # address
+  user: Bytes! # address
+  proxy: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -318,7 +318,127 @@ type Transfer @entity(immutable: true) {
   id: Bytes!
   from: Bytes! # address
   to: Bytes! # address
-  tokenId: BigInt! # uint256
+  vault: Vault! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Vault @entity {
+  id: String!
+  owner: Bytes! # address
+  collateralType: String!
+  collateral: BigInt!
+  debt: BigInt!
+  saviour: Bytes! # address
+  genesis: Boolean!
+  transfers: [Transfer!]! @derivedFrom(field: "vault")
+  approvals: [Approval!]! @derivedFrom(field: "vault")
+  modifications: [ModifySAFECollateralization!]! @derivedFrom(field: "vault")
+}
+
+type AllowSAFE @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vault: Vault!
+  usr: Bytes! # address
+  ok: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ModifySAFECollateralization @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vault: Vault!
+  deltaCollateral: BigInt! # int256
+  deltaDebt: BigInt! # int256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MoveSAFE @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vaultSrc: Vault! # uint256
+  vaultDst: Vault! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OpenSAFE @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  own: Bytes! # address
+  vault: Vault!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ProtectSAFE @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vault: Vault!
+  liquidationEngine: Bytes! # address
+  saviour: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type QuitSystem @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vault: Vault!
+  dst: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TransferCollateral @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vault: Vault!
+  dst: Bytes! # address
+  wad: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TransferCollateral1 @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  cType: Bytes! # bytes32
+  vault: Vault!
+  dst: Bytes! # address
+  wad: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TransferInternalCoins @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vault: Vault!
+  dst: Bytes! # address
+  rad: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TransferSAFEOwnership @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vault: Vault!
+  dst: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

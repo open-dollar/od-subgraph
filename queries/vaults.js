@@ -1,18 +1,33 @@
 const { postQuery } = require('./index');
 
-// Run with `node queries/vaults.js`
-
-// This query fetches the first 10 vaults from the subgraph
 postQuery(`
-    query MyQuery {
-        vaults(first: 10) {
+    query AllUsers {
+        vaults(first:1000) {
             id
             owner
-            collateralType
             collateral
             debt
-            saviour
-            genesis
+            collateralType
         }
-    }`).then(data => console.log(JSON.stringify(data, null, 4)))
-
+    }`).then(data => {
+    let owners = []
+    let vaultsByOwner = {}
+    let vaultsByCollateral = {}
+    data.data.vaults.map(vault => {
+        if (!owners.includes(vault.owner))
+            owners.push(vault.owner)
+        if (!vaultsByOwner[vault.owner])
+            vaultsByOwner[vault.owner] = []
+        vaultsByOwner[vault.owner].push(vault.id)
+        if (!vaultsByCollateral[vault.collateralType])
+            vaultsByCollateral[vault.collateralType] = []
+        vaultsByCollateral[vault.collateralType].push(vault.id)
+    })
+    const details = {
+        vaults: data.data.vaults,
+        owners: owners,
+        vaultsByOwner,
+        vaultsByCollateral
+    }
+    console.log(details)
+})

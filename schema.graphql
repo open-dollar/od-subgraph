@@ -330,6 +330,8 @@ type Vault @entity {
   collateralType: String!
   collateral: BigInt!
   debt: BigInt!
+  saviour: Bytes! # address
+  genesis: Boolean!
   transfers: [Transfer!]! @derivedFrom(field: "vault")
   approvals: [Approval!]! @derivedFrom(field: "vault")
   modifications: [ModifySAFECollateralization!]! @derivedFrom(field: "vault")

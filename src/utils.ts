@@ -1,8 +1,34 @@
 import { Vault } from "../generated/schema";
-import { BigInt, Address, Bytes } from "@graphprotocol/graph-ts";
+import { BigInt, Address } from "@graphprotocol/graph-ts";
 import { odSafeManager } from "../generated/odSafeManager/odSafeManager";
 
 const odsafeManagerAddress = "0x8646CBd915eAAD1a4E2Ba5e2b67Acec4957d5f1a";
+
+const isGenesis = (vaultId: string): boolean => {
+  const genesisList = [
+    1,
+    2,
+    6,
+    11,
+    12,
+    13,
+    14,
+    18,
+    21,
+    24,
+    26,
+    28,
+    29,
+    30,
+    31,
+    35,
+    36,
+    37,
+    38,
+    40,
+  ];
+  return genesisList.includes(<i32>parseInt(vaultId)) as boolean;
+};
 
 const parseCollateralType = (collateralType: string): string => {
   // Substitute for ethers.parseBytes32String()
@@ -34,6 +60,7 @@ class SAFEData {
   owner: Address;
   safeHandler: Address;
   collateralType: string;
+  genesis: boolean;
 }
 
 const getVaultDetails = (vaultId: string): SAFEData => {
@@ -44,6 +71,7 @@ const getVaultDetails = (vaultId: string): SAFEData => {
     owner: safeData.owner,
     safeHandler: safeData.safeHandler,
     collateralType: parseCollateralType(safeData.collateralType.toHexString()),
+    genesis: isGenesis(vaultId),
   };
 };
 

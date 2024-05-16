@@ -59,7 +59,6 @@ export function handleModifySAFECollateralization(
 
   let vault = getOrCreateVault(event.params._safe.toString());
 
-  // Update the Vault entity with the current debt and collateral
   vault.collateral = vault.collateral.plus(event.params._deltaCollateral);
   vault.debt = vault.debt.plus(event.params._deltaDebt);
 
@@ -116,6 +115,12 @@ export function handleProtectSAFE(event: ProtectSAFEEvent): void {
   entity.transactionHash = event.transaction.hash;
 
   entity.save();
+
+  let vault = getOrCreateVault(event.params._safe.toString());
+
+  vault.saviour = event.params._saviour;
+
+  vault.save();
 }
 
 export function handleQuitSystem(event: QuitSystemEvent): void {

@@ -83,9 +83,15 @@ export const getOrCreateVault = (vaultId: string): Vault => {
 
     let vaultDetails = getVaultDetails(vaultId);
     vault.collateralType = vaultDetails.collateralType;
-
+    vault.saviour = Address.fromString(
+      "0x0000000000000000000000000000000000000000"
+    );
+    vault.owner = Address.fromString(
+      "0x0000000000000000000000000000000000000000"
+    );
     vault.collateral = BigInt.fromI32(0);
     vault.debt = BigInt.fromI32(0);
+    vault.genesis = vaultDetails.genesis;
   }
 
   return vault;

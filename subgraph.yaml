@@ -142,6 +142,8 @@ dataSources:
       abis:
         - name: vault721
           file: ./abis/vault721.json
+        - name: odSafeManager
+          file: ./abis/odSafeManager.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,indexed uint256)
           handler: handleApproval
